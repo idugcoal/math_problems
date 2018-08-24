@@ -1,0 +1,9 @@
+.DS_Store
+.ipynb_checkpoints
+OLD/
+Untitled.ipynb
+__pycache__
+angle-labeled-triangle.tex
+jinjatest.pdf
+test3.py
+texput.log
