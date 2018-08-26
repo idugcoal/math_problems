@@ -1,0 +1,29 @@
+Solve for x.
+\newline
+\begin{tikzpicture} [scale=0.50]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (\VAR{pwidth}, 0);
+    \coordinate (C) at (\VAR{pwidth}, \VAR{pheight});
+
+    \draw [very thick] (A) -- (B) node [midway, below] {\VAR{pwidth}}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {x};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(B,A,C) 
+    \tkzGetAngle{angleBAC}; \FPround\angleABD\angleBAC{0}
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){\VAR{angle}}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{\VAR{pwidth}}{\cos \VAR{angle}}\]
+  \item
+    \[\frac{\cos \VAR{angle}}{\VAR{pwidth}}\]
+  \item
+    \[\frac{\VAR{pwidth}}{\sin \VAR{angle}}\]
+  \item
+    \[\frac{\sin \VAR{angle}}{\VAR{pwidth}}\]
+\end{enumerate}

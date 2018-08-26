@@ -1,20 +1,21 @@
 Solve for x.
 \newline
-\begin{tikzpicture}
+\begin{tikzpicture} [scale=0.50]
     \coordinate (A) at (0, 0);
     \coordinate (B) at (\VAR{pwidth}, 0);
     \coordinate (C) at (\VAR{pwidth}, \VAR{pheight});
 
-    \draw [very thick] (A) -- (B) node [midway, below] {\VAR{pwidth}}
-      -- (C) node [midway, right] {\VAR{pheight}}
-      -- cycle node [midway, above left] {x};
+    \draw [very thick] (A) -- (B) node [midway, below] {x}
+      -- (C) node [midway, right] {\VAR{height}}
+      -- cycle node [midway, above left] {};
     \newcommand{\ranglesize}{0.3cm}
     \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
 
-    % \tkzFindAngle(B,A,C) 
-    % \tkzGetAngle{angleBAC}; \FPround\angleABD\angleBAC{0}
-    % \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
-    % \tkzLabelAngle[dist=2](B,A,C){\tiny $\VAR{angle}^\circ$}
+    % \tkzFindAngle(A,C,B) 
+    % \tkzGetAngle{angleACB}; \FPround\angleABD\angleACB{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    % \tkzLabelAngle[dist=2](A,C,B){\VAR{angle}}
+
 \end{tikzpicture}
 \begin{enumerate}
   \item

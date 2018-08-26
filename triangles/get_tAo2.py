@@ -21,19 +21,19 @@ latex_jinja_env = jinja2.Environment(
 
 def generate_problem(f):
   template = latex_jinja_env.get_template(f)
-  h = random.randint(3, 5)
-  x = random.randint(6, 8)
-  w = math.sqrt(math.pow(x, 2) - math.pow(h, 2))
-  return template.render(pwidth=w, pheight=h, hyp=x)
+  w = random.randint(5, 10)
+  angle = random.randint(10, 55)
+  h = w / math.tan(math.radians(angle))
+  return template.render(pwidth=w, pheight=h, angle=(angle))
 
 def get_x():
-  in_file = 'triangles/tBCx.tex'
+  in_file = 'triangles/tAo2x.tex'
+  return generate_problem(in_file)
+
+def get_B(): 
+  in_file = 'triangles/tAo2B.tex'
   return generate_problem(in_file)
 
 def get_o1(): 
-  in_file = 'triangles/tBCo1.tex'
-  return generate_problem(in_file)
-
-def get_o2(): 
-  in_file = 'triangles/tBCo2.tex'
+  in_file = 'triangles/tAo2o1.tex'
   return generate_problem(in_file)

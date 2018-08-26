@@ -21,8 +21,8 @@ latex_jinja_env = jinja2.Environment(
 
 def generate_problem(f):
   template = latex_jinja_env.get_template(f)
-  x = random.randint(6, 8)
   w = random.randint(3, 5)
+  x = random.randint(6, 8)
   h = math.sqrt(math.pow(x, 2) - math.pow(w, 2))
   return template.render(pwidth=w, pheight=h, hyp=x)
 
