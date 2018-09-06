@@ -10,8 +10,8 @@ sys.path.insert(0, 'triangles/')
 # import get_tAB
 # import get_tBC
 # import get_tAC
-import get_tAo1 
-import get_tAo2
+# import get_tAo1 
+# import get_tAo2
 import get_tBo1
 import get_tBo2
 import get_tCo1
@@ -34,7 +34,9 @@ latex_jinja_env = jinja2.Environment(
 t_x = latex_jinja_env.get_template('triangles/t_x.tex')
 t_o1 = latex_jinja_env.get_template('triangles/t_o1.tex')
 t_o2 = latex_jinja_env.get_template('triangles/t_o2.tex')
+t_o1o2 = latex_jinja_env.get_template('triangles/t_o1o2.tex')
 
+# ABC
 def get_tABx():
   h = random.randint(3, 8)
   w = random.randint(3, 8)
@@ -77,6 +79,7 @@ def get_tACo2():
   x = random.randint(6, 8)
   h = math.sqrt(math.pow(x, 2) - math.pow(w, 2))
   return t_o2.render(w=w, h=h, a=w, c=x, o2='$\\theta$', solve='$\\theta$')
+# A and a side
 def get_tAo1x(): 
   w = random.randint(5, 7)
   angle = random.randint(20, 45)
@@ -88,7 +91,10 @@ def get_tAo1B():
   h = w / math.tan(math.radians(angle))
   return t_o1.render(w=w, h=h, a=w, b='x', o1=angle, angle=angle)
 def get_tAo1o2():
-  return get_tAo1.get_o2()    ###
+  w = random.randint(5, 7)
+  o1 = random.randint(20, 45)
+  h = w / math.tan(math.radians(o1))
+  return t_o1o2.render(w=w, h=h, a=w, o1=o1, o2='$\\theta$', solve='$\\theta$')
 def get_tAo2x():
   w = random.randint(5, 7)
   angle = random.randint(20, 45)
@@ -100,7 +106,11 @@ def get_tAo2B():
   h = w / math.tan(math.radians(angle))
   return t_o2.render(w=w, h=h, a=w, b='x', o2=angle, angle=angle, solve='x')
 def get_tAo2o1():
-  return get_tAo2.get_o1()    ###
+  w = random.randint(5, 7)
+  o2 = random.randint(20, 45)
+  h = w / math.tan(math.radians(o2))
+  return t_o1o2.render(w=w, h=h, a=w, o1='$\\theta$', o2=o2, solve='$\\theta$')
+# B and a side
 def get_tBo1x():
   h = random.randint(5, 7)
   angle = random.randint(20, 45)
@@ -112,7 +122,10 @@ def get_tBo1A():
   w = h * math.tan(math.radians(angle))
   return t_o1.render(w=w, h=h, b=h, a='x', o1=angle, angle=angle, solve='x')
 def get_tBo1o2():
-  return get_tBo1.get_o2()    ###
+  h = random.randint(5, 7)
+  o1 = random.randint(20, 45)
+  w = h * math.tan(math.radians(o1))
+  return t_o1o2.render(w=w, h=h, b=h, o1=o1, o2='$\\theta$', solve='$\\theta$')
 def get_tBo2x():
   h = random.randint(5, 7)
   angle = random.randint(20, 45)
@@ -124,7 +137,11 @@ def get_tBo2A():
   w = h / math.tan(math.radians(angle))
   return t_o2.render(w=w, h=h, b=h, a='x', o2=angle, angle=angle, solve='x')
 def get_tBo2o1():
-  return get_tBo2.get_o1()    ###
+  h = random.randint(5, 7)
+  o2 = random.randint(20, 45)
+  w = h / math.tan(math.radians(o2))
+  return t_o1o2.render(w=w, h=h, b=h, o1='$\\theta$', o2=o2, solve='$\\theta$')
+# C and a side
 def get_tCo1A():
   x = random.randint(5, 7)
   angle = random.randint(20, 45)
@@ -138,7 +155,11 @@ def get_tCo1B():
   h = x * math.cos(math.radians(angle))
   return t_o1.render(w=w, h=h, b='x', c=x, o1=angle, angle=angle, solve='x')
 def get_tCo1o2():
-  return get_tCo1.get_o2()    ###
+  x = random.randint(5, 7)
+  o1 = random.randint(20, 45)
+  w = x * math.sin(math.radians(o1))
+  h = x * math.cos(math.radians(o1))
+  return t_o1o2.render(w=w, h=h, c=x, o1=o1, o2='$\\theta$', solve='$\\theta$')
 def get_tCo2A():
   x = random.randint(5, 7)
   angle = random.randint(20, 45)
@@ -152,7 +173,11 @@ def get_tCo2B():
   h = x * math.sin(math.radians(angle))
   return t_o2.render(w=w, h=h, b='x', c=x, o2=angle, angle=angle, solve='x')
 def get_tCo2o1():
-  return get_tCo2.get_o1()
+  x = random.randint(5, 7)
+  o2 = random.randint(20, 45)
+  w = x * math.cos(math.radians(o2))
+  h = x * math.sin(math.radians(o2))
+  return t_o1o2.render(w=w, h=h, c=x, o1='$\\theta$', o2=o2, solve='$\\theta$')
 
 
 

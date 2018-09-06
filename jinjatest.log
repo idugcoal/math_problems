@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 SEP 2018 22:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  6 SEP 2018 10:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1135,48 +1135,32 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 17.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Missing character: There is no ; in font nullfont!
-[1
+) [1
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Missing character: There is no ; in font nullfont!
-[2] [3]
-Missing character: There is no ; in font nullfont!
-[4]
-Missing character: There is no ; in font nullfont!
-[5]
-Missing character: There is no ; in font nullfont!
-[6] [7] [8]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-[9] [10]
-Missing character: There is no ; in font nullfont!
-[11]
-Missing character: There is no ; in font nullfont!
-[12] [13] 
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+[4] [5] [6] [7] [8] [9] [10] 
 AED: lastpage setting LastPage
-[14] (./jinjatest.aux)
+[11] (./jinjatest.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 28236 strings out of 492649
- 598845 string characters out of 6129622
- 626719 words of memory out of 5000000
- 31651 multiletter control sequences out of 15000+600000
+ 28360 strings out of 492649
+ 601828 string characters out of 6129622
+ 628719 words of memory out of 5000000
+ 31775 multiletter control sequences out of 15000+600000
  534287 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,67p,10397b,1059s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,67p,10397b,1050s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on jinjatest.pdf (14 pages, 64459 bytes).
+Output written on jinjatest.pdf (11 pages, 59356 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

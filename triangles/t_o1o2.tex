@@ -1,6 +1,6 @@
 Solve for \VAR{solve}.
 \newline
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}
     \coordinate (A) at (0, 0);
     \coordinate (B) at (\VAR{w}, 0);
     \coordinate (C) at (\VAR{w}, \VAR{h});
@@ -17,17 +17,17 @@ Solve for \VAR{solve}.
     \tkzLabelAngle[dist=1.2](A,C,B){\VAR{o1}}
     % \tkzFindAngle(B,A,C) 
     % \tkzGetAngle{angleBAC};
-    \tkzMarkAngle[draw=black,opacity=.5,size=0.33](B,A,C)
-    \tkzLabelAngle[dist=1.2](B,A,C){\VAR{o2}}
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](C,A,B){\VAR{o2}}
 
 \end{tikzpicture}
-\begin{enumerate}
-  \item
-    \[\frac{\VAR{w}}{\cos \VAR{angle}}\]
-  \item
-    \[\frac{\cos \VAR{angle}}{\VAR{w}}\]
-  \item
-    \[\frac{\VAR{w}}{\sin \VAR{angle}}\]
-  \item
-    \[\frac{\sin \VAR{angle}}{\VAR{w}}\]
-\end{enumerate}
+% \begin{enumerate}
+%   \item
+%     \[\frac{\VAR{w}}{\cos \VAR{angle}}\]
+%   \item
+%     \[\frac{\cos \VAR{angle}}{\VAR{w}}\]
+%   \item
+%     \[\frac{\VAR{w}}{\sin \VAR{angle}}\]
+%   \item
+%     \[\frac{\sin \VAR{angle}}{\VAR{w}}\]
+% \end{enumerate}
