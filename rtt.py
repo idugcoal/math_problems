@@ -7,10 +7,10 @@ from jinja2 import Template
 import sys
 sys.path.insert(0, 'triangles/')
 
-import get_tAB
-import get_tBC
-import get_tAC
-import get_tAo1
+# import get_tAB
+# import get_tBC
+# import get_tAC
+import get_tAo1 
 import get_tAo2
 import get_tBo1
 import get_tBo2
@@ -31,84 +31,156 @@ latex_jinja_env = jinja2.Environment(
   loader = jinja2.FileSystemLoader(os.path.abspath('.'))
 )
 
-def getL1():
-  in_file = 'rttL1.tex'
-  template = latex_jinja_env.get_template(in_file)
-  pwidth = random.randint(3, 8)
-  pheight = random.randint(3, 8)
-  angle =  math.degrees(math.atan(pheight / pwidth))
-  return template.render(pwidth=pwidth, pheight=pheight, angle=angle)
+t_x = latex_jinja_env.get_template('triangles/t_x.tex')
+t_o1 = latex_jinja_env.get_template('triangles/t_o1.tex')
+t_o2 = latex_jinja_env.get_template('triangles/t_o2.tex')
 
-def getL2():
-  in_file = 'rttL2.tex'
-  template = latex_jinja_env.get_template(in_file)
-  pwidth = random.randint(3, 8)
-  pheight = random.randint(3, 8)
-  angle =  math.degrees(math.atan(pheight / pwidth))
-  questions = ['How long is the ladder?', 
-              'How far away from the house is the bottom of the ladder?',
-              'How high above the ground does the ladder touch the house?']
-  answers = [
-    [],[],[]
-  ]
-  qrand = random.randint(0, len(questions) - 1)
-  
-  return template.render(pwidth=pwidth, 
-                        pheight=pheight, 
-                        angle=angle, 
-                        question = questions[qrand])
-
-def get_tABx(): 
-  return get_tAB.get_x()
+def get_tABx():
+  h = random.randint(3, 8)
+  w = random.randint(3, 8)
+  return t_x.render(w=w, h=h, a=w, b=h, c='x', solve='x')
 def get_tABo1(): 
-  return get_tAB.get_o1()
-def get_tABo2(): 
-  return get_tAB.get_o2()
+  h = random.randint(3, 8)
+  w = random.randint(3, 8)
+  return t_o1.render(w=w, h=h, a=w, b=h, o1='$\\theta$', solve='$\\theta$')
+def get_tABo2():
+  h = random.randint(3, 8)
+  w = random.randint(3, 8) 
+  return t_o2.render(w=w, h=h, a=w, b=h, o2='$\\theta$', solve='$\\theta$')
 def get_tBCx():
-  return get_tBC.get_x()
+  h = random.randint(3, 5)
+  c = random.randint(6, 8)
+  w = math.sqrt(math.pow(c, 2) - math.pow(h, 2))
+  return t_x.render(w=w, h=h, a='x', b=h, c=c, solve='x')
 def get_tBCo1():
-  return get_tBC.get_o1()
+  h = random.randint(3, 5)
+  c = random.randint(6, 8)
+  w = math.sqrt(math.pow(c, 2) - math.pow(h, 2))
+  return t_o1.render(w=w, h=h, b=h, c=c, o1='$\\theta$', solve='$\\theta$')
 def get_tBCo2():
-  return get_tBC.get_o2()
+  h = random.randint(3, 5)
+  c = random.randint(6, 8)
+  w = math.sqrt(math.pow(c, 2) - math.pow(h, 2))
+  return t_o2.render(w=w, h=h, b=h, c=c, o2='$\\theta$', solve='$\\theta$')
 def get_tACx():
-  return get_tAC.get_x()
+  w = random.randint(3, 5)
+  x = random.randint(6, 8)
+  h = math.sqrt(math.pow(x, 2) - math.pow(w, 2))
+  return t_x.render(w=w, h=h, a=w, b='x', c=x, solve='x')
 def get_tACo1():
-  return get_tAC.get_o1()
+  w = random.randint(3, 5)
+  x = random.randint(6, 8)
+  h = math.sqrt(math.pow(x, 2) - math.pow(w, 2))
+  return t_o1.render(w=w, h=h, a=w, c=x, o1='$\\theta$', solve='$\\theta$')
 def get_tACo2():
-  return get_tAC.get_o2()
+  w = random.randint(3, 5)
+  x = random.randint(6, 8)
+  h = math.sqrt(math.pow(x, 2) - math.pow(w, 2))
+  return t_o2.render(w=w, h=h, a=w, c=x, o2='$\\theta$', solve='$\\theta$')
 def get_tAo1x(): 
-  return get_tAo1.get_x()
+  w = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  h = w / math.tan(math.radians(angle))
+  return t_o1.render(w=w, h=h, a=w, c='x', o1=angle, angle=angle)
 def get_tAo1B():
-  return get_tAo1.get_B()
+  w = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  h = w / math.tan(math.radians(angle))
+  return t_o1.render(w=w, h=h, a=w, b='x', o1=angle, angle=angle)
 def get_tAo1o2():
-  return get_tAo1.get_o2()
+  return get_tAo1.get_o2()    ###
 def get_tAo2x():
-  return get_tAo2.get_x()
+  w = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  h = w / math.tan(math.radians(angle))
+  return t_o2.render(w=w, h=h, a=w, c='x', o2=angle, angle=angle, solve='x')
 def get_tAo2B():
-  return get_tAo2.get_B()
+  w = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  h = w / math.tan(math.radians(angle))
+  return t_o2.render(w=w, h=h, a=w, b='x', o2=angle, angle=angle, solve='x')
 def get_tAo2o1():
-  return get_tAo2.get_o1()
+  return get_tAo2.get_o1()    ###
 def get_tBo1x():
-  return get_tBo1.get_x()
+  h = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  w = h * math.tan(math.radians(angle))
+  return t_o1.render(w=w, h=h, b=h, c='x', o1=angle, angle=angle, solve='x')
 def get_tBo1A():
-  return get_tBo1.get_A()
+  h = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  w = h * math.tan(math.radians(angle))
+  return t_o1.render(w=w, h=h, b=h, a='x', o1=angle, angle=angle, solve='x')
 def get_tBo1o2():
-  return get_tBo1.get_o2()
+  return get_tBo1.get_o2()    ###
 def get_tBo2x():
-  return get_tBo2.get_x()
+  h = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  w = h / math.tan(math.radians(angle))
+  return t_o2.render(w=w, h=h, b=h, c='x', o2=angle, angle=angle, solve='x')
 def get_tBo2A():
-  return get_tBo2.get_A()
+  h = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  w = h / math.tan(math.radians(angle))
+  return t_o2.render(w=w, h=h, b=h, a='x', o2=angle, angle=angle, solve='x')
 def get_tBo2o1():
-  return get_tBo2.get_o1()
+  return get_tBo2.get_o1()    ###
 def get_tCo1A():
-  return get_tCo1.get_A()
+  x = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  w = x * math.sin(math.radians(angle))
+  h = x * math.cos(math.radians(angle))
+  return t_o1.render(w=w, h=h, a='x', c=x, o1=angle, angle=angle, solve='x')
 def get_tCo1B():
-  return get_tCo1.get_B()
+  x = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  w = x * math.sin(math.radians(angle))
+  h = x * math.cos(math.radians(angle))
+  return t_o1.render(w=w, h=h, b='x', c=x, o1=angle, angle=angle, solve='x')
 def get_tCo1o2():
-  return get_tCo1.get_o2()
+  return get_tCo1.get_o2()    ###
 def get_tCo2A():
-  return get_tCo2.get_A()
+  x = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  w = x * math.cos(math.radians(angle))
+  h = x * math.sin(math.radians(angle))
+  return t_o2.render(w=w, h=h, a='x', c=x, o2=angle, angle=angle, solve='x')
 def get_tCo2B():
-  return get_tCo2.get_B()
+  x = random.randint(5, 7)
+  angle = random.randint(20, 45)
+  w = x * math.cos(math.radians(angle))
+  h = x * math.sin(math.radians(angle))
+  return t_o2.render(w=w, h=h, b='x', c=x, o2=angle, angle=angle, solve='x')
 def get_tCo2o1():
   return get_tCo2.get_o1()
+
+
+
+
+
+# def getL1():
+#   in_file = 'rttL1.tex'
+#   template = latex_jinja_env.get_template(in_file)
+#   pwidth = random.randint(3, 8)
+#   pheight = random.randint(3, 8)
+#   angle =  math.degrees(math.atan(pheight / pwidth))
+#   return template.render(pwidth=pwidth, pheight=pheight, angle=angle)
+
+# def getL2():
+#   in_file = 'rttL2.tex'
+#   template = latex_jinja_env.get_template(in_file)
+#   pwidth = random.randint(3, 8)
+#   pheight = random.randint(3, 8)
+#   angle =  math.degrees(math.atan(pheight / pwidth))
+#   questions = ['How long is the ladder?', 
+#               'How far away from the house is the bottom of the ladder?',
+#               'How high above the ground does the ladder touch the house?']
+#   answers = [
+#     [],[],[]
+#   ]
+#   qrand = random.randint(0, len(questions) - 1)
+  
+#   return template.render(pwidth=pwidth, 
+#                         pheight=pheight, 
+#                         angle=angle, 
+#                         question = questions[qrand])

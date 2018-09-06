@@ -25,7 +25,7 @@ def generate_problem(f):
   angle = random.randint(10, 50)
   w = x * math.cos(math.radians(angle))
   h = x * math.sin(math.radians(angle))
-  return template.render(pwidth=w, pheight=h, angle=(angle))
+  return template.render(pwidth=w, pheight=h, angle=angle, hyp=x)
 
 def get_A():
   in_file = 'triangles/tCo2A.tex'

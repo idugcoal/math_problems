@@ -19,57 +19,55 @@ latex_jinja_env = jinja2.Environment(
 
 in_file = 'math-template.tex'
 out_file = 'jinjatest'
-# l1 = rtt.getL1()
-# l2 = rtt.getL2()
-l1 = rtt.get_tABx()
-l2 = rtt.get_tABo1()
-l3 = rtt.get_tABo2()
-l4 = rtt.get_tBCx()
-l5 = rtt.get_tBCo1()
-l6 = rtt.get_tBCo2()
-l7 = rtt.get_tACx()
-l8 = rtt.get_tACo1()
-l9 = rtt.get_tACo2()
-l10 = rtt.get_tAo1x()
-l11 = rtt.get_tAo1B()
-l12 = rtt.get_tAo1o2()
-l13 = rtt.get_tAo2x()
-l14 = rtt.get_tAo2B()
-l15 = rtt.get_tAo2o1()
-l16 = rtt.get_tBo1x()
-l17 = rtt.get_tBo1A()
-l18 = rtt.get_tBo1o2()
-l19 = rtt.get_tBo2x()
-l20 = rtt.get_tBo2A()
-l21 = rtt.get_tBo2o1()
-l22 = rtt.get_tCo1A()
-l23 = rtt.get_tCo1B()
-l24 = rtt.get_tCo1o2()
-l25 = rtt.get_tCo2A()
-l26 = rtt.get_tCo2B()
-l27 = rtt.get_tCo2o1()
+q1 = rtt.get_tABx()
+q2 = rtt.get_tABo1()
+q3 = rtt.get_tABo2()
+q4 = rtt.get_tBCx()
+q5 = rtt.get_tBCo1()
+q6 = rtt.get_tBCo2()
+q7 = rtt.get_tACx()
+q8 = rtt.get_tACo1()
+q9 = rtt.get_tACo2()
+q10 = rtt.get_tAo1x()
+q11 = rtt.get_tAo1B()
+q12 = rtt.get_tAo1o2()
+q13 = rtt.get_tAo2x()
+q14 = rtt.get_tAo2B()
+q15 = rtt.get_tAo2o1()
+q16 = rtt.get_tBo1x()
+q17 = rtt.get_tBo1A()
+q18 = rtt.get_tBo1o2()
+q19 = rtt.get_tBo2x()
+q20 = rtt.get_tBo2A()
+q21 = rtt.get_tBo2o1()
+q22 = rtt.get_tCo1A()
+q23 = rtt.get_tCo1B()
+q24 = rtt.get_tCo1o2()
+q25 = rtt.get_tCo2A()
+q26 = rtt.get_tCo2B()
+q27 = rtt.get_tCo2o1()
 template = latex_jinja_env.get_template(in_file)
-renderedTemplate = template.render(pwidth='5cm', pheight='3cm', 
-  l1=l1, l2=l2, l3=l3, l4=l4, l5=l5, l6=l6, l7=l7, l8=l8, l9=l9,
-  l10=l10,
-  l11=l11, 
-  l12=l12,
-  l13=l13,
-  l14=l14,
-  l15=l15,
-  l16=l16,
-  l17=l17,
-  l18=l18,
-  l19=l19,
-  l20=l20,
-  l21=l21,
-  l22=l22,
-  l23=l23,
-  l24=l24,
-  l25=l25,
-  l26=l26, 
-  l27=l27
-  )
+renderedTemplate = template.render(
+  q1=q1, q2=q2, q3=q3, q4=q4, q5=q5, q6=q6, q7=q7, q8=q8, q9=q9,
+  q10=q10, 
+  q11=q11, 
+  q12=q12, 
+  q13=q13, 
+  q14=q14, 
+  q15=q15, 
+  q16=q16, 
+  q17=q17, 
+  q18=q18,
+  q19=q19, 
+  q20=q20, 
+  q21=q21, 
+  q22=q22, 
+  q23=q23, 
+  q24=q24, 
+  q25=q25, 
+  q26=q26, 
+  q27=q27
+)
 
 with open(out_file + '.tex', 'w') as f:
     f.write(renderedTemplate)
@@ -83,6 +81,6 @@ if not retcode == 0:
     os.unlink(out_file + '.pdf')
     raise ValueError('Error {} executing command: {}'.format(retcode, ' '.join(cmd))) 
 
-os.unlink(out_file + '.tex')
-os.unlink(out_file + '.log')
-os.unlink(out_file + '.aux')
+# os.unlink(out_file + '.tex')
+# os.unlink(out_file + '.log')
+# os.unlink(out_file + '.aux')

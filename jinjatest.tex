@@ -1,0 +1,840 @@
+\documentclass{article}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{tikz}
+\usepackage{mathexam}
+\usepackage{amsmath}
+\usepackage{tikz,amsmath,amssymb,tkz-euclide}
+\usepackage{siunitx}
+% \usepackage{angles,quotes}
+\usetikzlibrary{calc, angles, quotes}
+\usetkzobj{all}
+
+\ExamClass{Algebra II/Trig}
+\ExamName{Sample Exam}
+\ExamHead{\today}
+\let\ds\displaystyle
+
+\begin{document}
+
+\ExamInstrBox{
+Please show \textbf{all} your work! Answers without supporting work will not be given credit. Please box all of your answers. You have 50 minutes to complete this exam.}
+\ExamNameLine
+
+\begin{enumerate}
+\item 
+    Solve for x.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (7, 0);
+    \coordinate (C) at (7, 6);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {7}
+      -- (C) node [midway, right] {6}
+      -- cycle node [midway, above left] {x};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{7}{\cos }\]
+  \item
+    \[\frac{\cos }{7}\]
+  \item
+    \[\frac{7}{\sin }\]
+  \item
+    \[\frac{\sin }{7}\]
+\end{enumerate}
+\item
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (8, 0);
+    \coordinate (C) at (8, 6);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {8}
+      -- (C) node [midway, right] {6}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(A,C,B) 
+    \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{8}{\cos }\]
+  \item
+    \[\frac{\cos }{8}\]
+  \item
+    \[\frac{8}{\sin }\]
+  \item
+    \[\frac{\sin }{8}\]
+\end{enumerate}
+\item 
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (6, 0);
+    \coordinate (C) at (6, 3);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {6}
+      -- (C) node [midway, right] {3}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC};
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{6}{\cos }\]
+  \item
+    \[\frac{\cos }{6}\]
+  \item
+    \[\frac{6}{\sin }\]
+  \item
+    \[\frac{\sin }{6}\]
+\end{enumerate}
+\item
+    Solve for x.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (5.744562646538029, 0);
+    \coordinate (C) at (5.744562646538029, 4);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {x}
+      -- (C) node [midway, right] {4}
+      -- cycle node [midway, above left] {7};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{5.744562646538029}{\cos }\]
+  \item
+    \[\frac{\cos }{5.744562646538029}\]
+  \item
+    \[\frac{5.744562646538029}{\sin }\]
+  \item
+    \[\frac{\sin }{5.744562646538029}\]
+\end{enumerate}
+\item 
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (6.244997998398398, 0);
+    \coordinate (C) at (6.244997998398398, 5);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {}
+      -- (C) node [midway, right] {5}
+      -- cycle node [midway, above left] {8};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(A,C,B) 
+    \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{6.244997998398398}{\cos }\]
+  \item
+    \[\frac{\cos }{6.244997998398398}\]
+  \item
+    \[\frac{6.244997998398398}{\sin }\]
+  \item
+    \[\frac{\sin }{6.244997998398398}\]
+\end{enumerate}
+\item
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (6.928203230275509, 0);
+    \coordinate (C) at (6.928203230275509, 4);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {}
+      -- (C) node [midway, right] {4}
+      -- cycle node [midway, above left] {8};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC};
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{6.928203230275509}{\cos }\]
+  \item
+    \[\frac{\cos }{6.928203230275509}\]
+  \item
+    \[\frac{6.928203230275509}{\sin }\]
+  \item
+    \[\frac{\sin }{6.928203230275509}\]
+\end{enumerate}
+\item 
+    Solve for x.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4, 0);
+    \coordinate (C) at (4, 5.744562646538029);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {4}
+      -- (C) node [midway, right] {x}
+      -- cycle node [midway, above left] {7};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{4}{\cos }\]
+  \item
+    \[\frac{\cos }{4}\]
+  \item
+    \[\frac{4}{\sin }\]
+  \item
+    \[\frac{\sin }{4}\]
+\end{enumerate}
+\item
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4, 0);
+    \coordinate (C) at (4, 5.744562646538029);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {4}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {7};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(A,C,B) 
+    \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{4}{\cos }\]
+  \item
+    \[\frac{\cos }{4}\]
+  \item
+    \[\frac{4}{\sin }\]
+  \item
+    \[\frac{\sin }{4}\]
+\end{enumerate}
+\item
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (3, 0);
+    \coordinate (C) at (3, 7.416198487095663);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {3}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {8};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC};
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{3}{\cos }\]
+  \item
+    \[\frac{\cos }{3}\]
+  \item
+    \[\frac{3}{\sin }\]
+  \item
+    \[\frac{\sin }{3}\]
+\end{enumerate}
+\item 
+    Solve for .
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (6, 0);
+    \coordinate (C) at (6, 13.476220643425297);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {6}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {x};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(A,C,B) 
+    \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){24}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{6}{\cos 24}\]
+  \item
+    \[\frac{\cos 24}{6}\]
+  \item
+    \[\frac{6}{\sin 24}\]
+  \item
+    \[\frac{\sin 24}{6}\]
+\end{enumerate}
+\item 
+    Solve for .
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (7, 0);
+    \coordinate (C) at (7, 11.202341703287352);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {7}
+      -- (C) node [midway, right] {x}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(A,C,B) 
+    \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){32}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{7}{\cos 32}\]
+  \item
+    \[\frac{\cos 32}{7}\]
+  \item
+    \[\frac{7}{\sin 32}\]
+  \item
+    \[\frac{\sin 32}{7}\]
+\end{enumerate}
+\item
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture} [scale=0.50]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (5, 0);
+    \coordinate (C) at (5, 4.346433689081135);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {5}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(A,C,B) 
+    % \tkzGetAngle{angleACB}; \FPround\angleABD\angleACB{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    % \tkzLabelAngle[dist=1.2](A,C,B){49}
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC}; \FPround\angleABD\angleBAC{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    % \tkzLabelAngle[dist=1.2](B,A,C){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{5}{\cos 49}\]
+  \item
+    \[\frac{\cos 49}{5}\]
+  \item
+    \[\frac{5}{\sin 49}\]
+  \item
+    \[\frac{\sin 49}{5}\]
+\end{enumerate}
+\item 
+    Solve for x.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (6, 0);
+    \coordinate (C) at (6, 10.392304845413266);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {6}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {x};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC};
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){30}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{6}{\cos 30}\]
+  \item
+    \[\frac{\cos 30}{6}\]
+  \item
+    \[\frac{6}{\sin 30}\]
+  \item
+    \[\frac{\sin 30}{6}\]
+\end{enumerate}
+\item
+    Solve for x.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (7, 0);
+    \coordinate (C) at (7, 7.248712196533988);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {7}
+      -- (C) node [midway, right] {x}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC};
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){44}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{7}{\cos 44}\]
+  \item
+    \[\frac{\cos 44}{7}\]
+  \item
+    \[\frac{7}{\sin 44}\]
+  \item
+    \[\frac{\sin 44}{7}\]
+\end{enumerate}
+\item 
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture} [scale=0.50]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (7, 0);
+    \coordinate (C) at (7, 16.49096656076627);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {7}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC}; \FPround\angleABD\angleBAC{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    % \tkzLabelAngle[dist=1.2](B,A,C){23}
+
+    % \tkzFindAngle(A,C,B) 
+    % \tkzGetAngle{angleACB}; \FPround\angleABD\angleACB{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    % \tkzLabelAngle[dist=2](A,C,B){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{7}{\cos 23}\]
+  \item
+    \[\frac{\cos 23}{7}\]
+  \item
+    \[\frac{7}{\sin 23}\]
+  \item
+    \[\frac{\sin 23}{7}\]
+\end{enumerate}
+\item
+    Solve for x.
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (2.5468488972576284, 0);
+    \coordinate (C) at (2.5468488972576284, 6);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {}
+      -- (C) node [midway, right] {6}
+      -- cycle node [midway, above left] {x};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(A,C,B) 
+    \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){23}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{2.5468488972576284}{\cos 23}\]
+  \item
+    \[\frac{\cos 23}{2.5468488972576284}\]
+  \item
+    \[\frac{2.5468488972576284}{\sin 23}\]
+  \item
+    \[\frac{\sin 23}{2.5468488972576284}\]
+\end{enumerate}
+\item 
+    Solve for x.
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4.346433689081134, 0);
+    \coordinate (C) at (4.346433689081134, 5);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {x}
+      -- (C) node [midway, right] {5}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(A,C,B) 
+    \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){41}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{4.346433689081134}{\cos 41}\]
+  \item
+    \[\frac{\cos 41}{4.346433689081134}\]
+  \item
+    \[\frac{4.346433689081134}{\sin 41}\]
+  \item
+    \[\frac{\sin 41}{4.346433689081134}\]
+\end{enumerate}
+\item
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture} [scale=0.50]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (2.1435935394489816, 0);
+    \coordinate (C) at (2.1435935394489816, 8);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {}
+      -- (C) node [midway, right] {8}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(A,C,B) 
+    % \tkzGetAngle{angleACB}; \FPround\angleABD\angleACB{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    % \tkzLabelAngle[dist=1.2](A,C,B){15}
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC}; \FPround\angleABD\angleBAC{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    % \tkzLabelAngle[dist=1.2](B,A,C){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{2.1435935394489816}{\cos 15}\]
+  \item
+    \[\frac{\cos 15}{2.1435935394489816}\]
+  \item
+    \[\frac{2.1435935394489816}{\sin 15}\]
+  \item
+    \[\frac{\sin 15}{2.1435935394489816}\]
+\end{enumerate}
+\item
+    Solve for x.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (9.28931375134287, 0);
+    \coordinate (C) at (9.28931375134287, 7);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {}
+      -- (C) node [midway, right] {7}
+      -- cycle node [midway, above left] {x};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC};
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){37}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{9.28931375134287}{\cos 37}\]
+  \item
+    \[\frac{\cos 37}{9.28931375134287}\]
+  \item
+    \[\frac{9.28931375134287}{\sin 37}\]
+  \item
+    \[\frac{\sin 37}{9.28931375134287}\]
+\end{enumerate}
+\item
+    Solve for x.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (13.165085257424323, 0);
+    \coordinate (C) at (13.165085257424323, 7);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {x}
+      -- (C) node [midway, right] {7}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC};
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){28}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{13.165085257424323}{\cos 28}\]
+  \item
+    \[\frac{\cos 28}{13.165085257424323}\]
+  \item
+    \[\frac{13.165085257424323}{\sin 28}\]
+  \item
+    \[\frac{\sin 28}{13.165085257424323}\]
+\end{enumerate}
+\item 
+    Solve for $\theta$.
+\newline
+\begin{tikzpicture} [scale=0.50]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (23.558523658237526, 0);
+    \coordinate (C) at (23.558523658237526, 10);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {}
+      -- (C) node [midway, right] {10}
+      -- cycle node [midway, above left] {};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(A,C,B) 
+    % \tkzGetAngle{angleACB}; \FPround\angleABD\angleACB{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    % \tkzLabelAngle[dist=1.2](A,C,B){23}
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC}; \FPround\angleABD\angleBAC{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    % \tkzLabelAngle[dist=1.2](B,A,C){$\theta$}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{23.558523658237526}{\cos 23}\]
+  \item
+    \[\frac{\cos 23}{23.558523658237526}\]
+  \item
+    \[\frac{23.558523658237526}{\sin 23}\]
+  \item
+    \[\frac{\sin 23}{23.558523658237526}\]
+\end{enumerate}
+\item
+    Solve for x.
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (1.7101007166283435, 0);
+    \coordinate (C) at (1.7101007166283435, 4.698463103929543);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {x}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {5};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(A,C,B) 
+    \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){20}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{1.7101007166283435}{\cos 20}\]
+  \item
+    \[\frac{\cos 20}{1.7101007166283435}\]
+  \item
+    \[\frac{1.7101007166283435}{\sin 20}\]
+  \item
+    \[\frac{\sin 20}{1.7101007166283435}\]
+\end{enumerate}
+\item 
+    Solve for x.
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4.77398852043749, 0);
+    \coordinate (C) at (4.77398852043749, 5.119475911334193);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {}
+      -- (C) node [midway, right] {x}
+      -- cycle node [midway, above left] {7};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    \tkzFindAngle(A,C,B) 
+    \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){43}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{4.77398852043749}{\cos 43}\]
+  \item
+    \[\frac{\cos 43}{4.77398852043749}\]
+  \item
+    \[\frac{4.77398852043749}{\sin 43}\]
+  \item
+    \[\frac{\sin 43}{4.77398852043749}\]
+\end{enumerate}
+\item
+    Solve for x.
+\newline
+\begin{tikzpicture} [scale=0.50]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4.949747468305832, 0);
+    \coordinate (C) at (4.949747468305832, 4.949747468305833);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {4.949747468305832}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {x};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(A,C,B) 
+    % \tkzGetAngle{angleACB}; \FPround\angleABD\angleACB{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    % \tkzLabelAngle[dist=1.2](A,C,B){45}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{4.949747468305832}{\cos 45}\]
+  \item
+    \[\frac{\cos 45}{4.949747468305832}\]
+  \item
+    \[\frac{4.949747468305832}{\sin 45}\]
+  \item
+    \[\frac{\sin 45}{4.949747468305832}\]
+\end{enumerate}
+\item 
+    Solve for x.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (5.247718242836374, 0);
+    \coordinate (C) at (5.247718242836374, 2.9088577214780225);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {x}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {6};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC};
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){29}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{5.247718242836374}{\cos 29}\]
+  \item
+    \[\frac{\cos 29}{5.247718242836374}\]
+  \item
+    \[\frac{5.247718242836374}{\sin 29}\]
+  \item
+    \[\frac{\sin 29}{5.247718242836374}\]
+\end{enumerate}
+\item
+    Solve for x.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (3.993177550236464, 0);
+    \coordinate (C) at (3.993177550236464, 3.0090751157602416);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {}
+      -- (C) node [midway, right] {x}
+      -- cycle node [midway, above left] {5};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(B,A,C) 
+    % \tkzGetAngle{angleBAC};
+    \tkzMarkAngle[draw=black,opacity=.5](B,A,C)
+    \tkzLabelAngle[dist=1.2](B,A,C){37}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{3.993177550236464}{\cos 37}\]
+  \item
+    \[\frac{\cos 37}{3.993177550236464}\]
+  \item
+    \[\frac{3.993177550236464}{\sin 37}\]
+  \item
+    \[\frac{\sin 37}{3.993177550236464}\]
+\end{enumerate}
+\item 
+    Solve for x.
+\newline
+\begin{tikzpicture} [scale=0.50]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4.949747468305833, 0);
+    \coordinate (C) at (4.949747468305833, 4.949747468305832);
+
+    \draw [very thick] (A) -- (B) node [midway, below] {}
+      -- (C) node [midway, right] {}
+      -- cycle node [midway, above left] {7};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+    % \draw (-.3,0)|-(0,.3)
+    % \tkzFindAngle(A,C,B) 
+    % \tkzGetAngle{angleACB}; \FPround\angleABD\angleACB{0}
+    % \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    % \tkzLabelAngle[dist=1.2](A,C,B){45}
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{4.949747468305833}{\cos 45}\]
+  \item
+    \[\frac{\cos 45}{4.949747468305833}\]
+  \item
+    \[\frac{4.949747468305833}{\sin 45}\]
+  \item
+    \[\frac{\sin 45}{4.949747468305833}\]
+\end{enumerate}
+\end{enumerate}
+\end{document}

@@ -5,12 +5,12 @@ Solve for x.
     \coordinate (B) at (\VAR{pwidth}, 0);
     \coordinate (C) at (\VAR{pwidth}, \VAR{pheight});
 
-    \draw [very thick] (A) -- (B) node [midway, below] {\VAR{pwidth}}
+    \draw [very thick] (A) -- (B) node [midway, below] {}
       -- (C) node [midway, right] {}
-      -- cycle node [midway, above left] {x};
+      -- cycle node [midway, above left] {\VAR{hyp}};
     \newcommand{\ranglesize}{0.3cm}
     \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
-
+    % \draw (-.3,0)|-(0,.3)
     % \tkzFindAngle(A,C,B) 
     % \tkzGetAngle{angleACB}; \FPround\angleABD\angleACB{0}
     % \tkzMarkAngle[draw=black,opacity=.5](A,C,B)

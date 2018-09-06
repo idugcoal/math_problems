@@ -1,0 +1,24 @@
+Solve for \VAR{solve}.
+\newline
+\begin{tikzpicture}[scale=0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (\VAR{w}, 0);
+    \coordinate (C) at (\VAR{w}, \VAR{h});
+
+    \draw [very thick] (A) -- (B) node [midway, below] {\VAR{a}}
+      -- (C) node [midway, right] {\VAR{b}}
+      -- cycle node [midway, above left] {\VAR{c}};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+\end{tikzpicture}
+\begin{enumerate}
+  \item
+    \[\frac{\VAR{w}}{\cos \VAR{angle}}\]
+  \item
+    \[\frac{\cos \VAR{angle}}{\VAR{w}}\]
+  \item
+    \[\frac{\VAR{w}}{\sin \VAR{angle}}\]
+  \item
+    \[\frac{\sin \VAR{angle}}{\VAR{w}}\]
+\end{enumerate}

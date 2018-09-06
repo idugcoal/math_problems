@@ -30,6 +30,7 @@ def get_x():
   return generate_problem(in_file)
 
 def get_o1(): 
+  print('heyyy')
   in_file = 'triangles/tABo1.tex'
   return generate_problem(in_file)
 
