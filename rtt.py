@@ -5,17 +5,6 @@ import os
 import subprocess
 from jinja2 import Template
 import sys
-sys.path.insert(0, 'triangles/')
-
-# import get_tAB
-# import get_tBC
-# import get_tAC
-# import get_tAo1 
-# import get_tAo2
-import get_tBo1
-import get_tBo2
-import get_tCo1
-import get_tCo2
 
 latex_jinja_env = jinja2.Environment(
   block_start_string = '\BLOCK{',
