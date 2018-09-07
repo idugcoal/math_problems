@@ -25,6 +25,10 @@ t_o1 = latex_jinja_env.get_template('templates/triangles/t_o1.tex')
 t_o2 = latex_jinja_env.get_template('templates/triangles/t_o2.tex')
 t_o1o2 = latex_jinja_env.get_template('templates/triangles/t_o1o2.tex')
 r_db = latex_jinja_env.get_template('templates/rectangles/r_db.tex')
+g_b = latex_jinja_env.get_template('templates/graphs/blank.tex')
+
+def get_gb():
+  return g_b.render(n=-5, d=3)
 def get_rdb():
   return r_db.render(w=8.6, h=5.2)
 def get_tABx():
