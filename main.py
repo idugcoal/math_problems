@@ -19,7 +19,8 @@ latex_jinja_env = jinja2.Environment(
 
 in_file = 'math-template.tex'
 out_file = 'jinjatest'
-q1 = rtt.get_tABx()
+q1 = rtt.get_rdb()
+# q1 = rtt.get_tABx()
 q2 = rtt.get_tABo1()
 q3 = rtt.get_tABo2()
 q4 = rtt.get_tBCx()

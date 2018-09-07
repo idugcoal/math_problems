@@ -1,0 +1,15 @@
+Jamey is running on the rectangular court below. The court is \VAR{w} feet long and \VAR{h} feet wide. Jamey starts at point A and runs a specific pattern to the other letters. For today’s workout, Jamey’s running pattern is A to B to D to A to C to D. Jamey runs this pattern \VAR{t} times. How many feet did Jamey run in total? Round your answer to the nearest foot.  
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (\VAR{w}, 0);
+    \coordinate (C) at (\VAR{w}, \VAR{h});
+    \coordinate (D) at (0, \VAR{h});
+
+    \draw [very thick] (A) -- (B) node [below, right] {B}
+      -- (C) node [above, right] {C}
+      -- (D) node [above, left] {A}
+      -- cycle node [below, left] {B};
+    \draw (B) -- (D);
+   
+\end{tikzpicture}

@@ -20,11 +20,13 @@ latex_jinja_env = jinja2.Environment(
   loader = jinja2.FileSystemLoader(os.path.abspath('.'))
 )
 
-t_x = latex_jinja_env.get_template('triangles/t_x.tex')
-t_o1 = latex_jinja_env.get_template('triangles/t_o1.tex')
-t_o2 = latex_jinja_env.get_template('triangles/t_o2.tex')
-t_o1o2 = latex_jinja_env.get_template('triangles/t_o1o2.tex')
-
+t_x = latex_jinja_env.get_template('templates/triangles/t_x.tex')
+t_o1 = latex_jinja_env.get_template('templates/triangles/t_o1.tex')
+t_o2 = latex_jinja_env.get_template('templates/triangles/t_o2.tex')
+t_o1o2 = latex_jinja_env.get_template('templates/triangles/t_o1o2.tex')
+r_db = latex_jinja_env.get_template('templates/rectangles/r_db.tex')
+def get_rdb():
+  return r_db.render(w=8.6, h=5.2)
 def get_tABx():
   h = random.randint(3, 8)
   w = random.randint(3, 8)
@@ -71,12 +73,12 @@ def get_tAo1x():
   w = random.randint(5, 7)
   o1 = random.randint(20, 45)
   h = w / math.tan(math.radians(o1))
-  return t_o1.render(w=w, h=h, a=w, c='x', o1=o1)
+  return t_o1.render(w=w, h=h, a=w, c='x', o1=o1, solve='x')
 def get_tAo1B():
   w = random.randint(5, 7)
   o1 = random.randint(20, 45)
   h = w / math.tan(math.radians(o1))
-  return t_o1.render(w=w, h=h, a=w, b='x', o1=o1)
+  return t_o1.render(w=w, h=h, a=w, b='x', o1=o1, solve='x')
 def get_tAo1o2():
   w = random.randint(5, 7)
   o1 = random.randint(20, 45)

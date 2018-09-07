@@ -1,0 +1,19 @@
+Solve for \VAR{solve}.
+\newline
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (\VAR{w}, 0);
+    \coordinate (C) at (\VAR{w}, \VAR{h});
+
+    \draw [very thick] (A) -- (B) node [midway, below] {\VAR{a}}
+      -- (C) node [midway, right] {\VAR{b}}
+      -- cycle node [midway, above left] {\VAR{c}};
+    \newcommand{\ranglesize}{0.3cm}
+    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+
+    % \tkzFindAngle(A,C,B) 
+    % \tkzGetAngle{angleACB};
+    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
+    \tkzLabelAngle[dist=1.2](A,C,B){\VAR{o1}}
+
+\end{tikzpicture}
