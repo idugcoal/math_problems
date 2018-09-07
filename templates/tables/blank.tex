@@ -1,0 +1,9 @@
+\begin{tikzpicture}[cell/.style={rectangle,draw=black},
+space/.style={minimum height=1.5em,matrix of nodes,row sep=-\pgflinewidth,column sep=-\pgflinewidth,column 1/.style={font=\ttfamily}},text depth=0.5ex,text height=2ex,nodes in empty cells]
+
+\matrix [space, column 1/.style={minimum width=3em,nodes={cell,minimum width=3.5em}},column 2/.style={nodes={cell,minimum width=2em}},column 3/.style={nodes={cell,minimum width=2em}},column 4/.style={nodes={cell,minimum width=2em}},column 5/.style={nodes={cell,minimum width=2em}},column 6/.style={nodes={cell,minimum width=2em}},column 7/.style={nodes={cell,minimum width=2em}}]
+{
+x       &\VAR{i1} &\VAR{i2} &\VAR{i3} &\VAR{i4} &\VAR{i5} &\VAR{i6} \\   
+f(x)    &\VAR{o1} &\VAR{o2} &\VAR{o3} &\VAR{o4} &\VAR{o5} &\VAR{o6} \\   
+};
+\end{tikzpicture}
