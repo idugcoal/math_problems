@@ -69,14 +69,14 @@ def get_tACo2():
   return t_o2.render(w=w, h=h, a=w, c=x, o2='$\\theta$', solve='$\\theta$')
 def get_tAo1x(): 
   w = random.randint(5, 7)
-  angle = random.randint(20, 45)
-  h = w / math.tan(math.radians(angle))
-  return t_o1.render(w=w, h=h, a=w, c='x', o1=angle, angle=angle)
+  o1 = random.randint(20, 45)
+  h = w / math.tan(math.radians(o1))
+  return t_o1.render(w=w, h=h, a=w, c='x', o1=o1)
 def get_tAo1B():
   w = random.randint(5, 7)
-  angle = random.randint(20, 45)
-  h = w / math.tan(math.radians(angle))
-  return t_o1.render(w=w, h=h, a=w, b='x', o1=angle, angle=angle)
+  o1 = random.randint(20, 45)
+  h = w / math.tan(math.radians(o1))
+  return t_o1.render(w=w, h=h, a=w, b='x', o1=o1)
 def get_tAo1o2():
   w = random.randint(5, 7)
   o1 = random.randint(20, 45)
@@ -86,12 +86,12 @@ def get_tAo2x():
   w = random.randint(5, 7)
   o2 = random.randint(20, 45)
   h = w / math.tan(math.radians(o2))
-  return t_o2.render(w=w, h=h, a=w, c='x', o2=o2, angle=o2, solve='x')
+  return t_o2.render(w=w, h=h, a=w, c='x', o2=o2, solve='x')
 def get_tAo2B():
   w = random.randint(5, 7)
   o2 = random.randint(20, 45)
   h = w / math.tan(math.radians(o2))
-  return t_o2.render(w=w, h=h, a=w, b='x', o2=o2, angle=o2, solve='x')
+  return t_o2.render(w=w, h=h, a=w, b='x', o2=o2, solve='x')
 def get_tAo2o1():
   w = random.randint(5, 7)
   o2 = random.randint(20, 45)
@@ -101,12 +101,12 @@ def get_tBo1x():
   h = random.randint(5, 7)
   o1 = random.randint(20, 45)
   w = h * math.tan(math.radians(o1))
-  return t_o1.render(w=w, h=h, b=h, c='x', o1=o1, angle=o1, solve='x')
+  return t_o1.render(w=w, h=h, b=h, c='x', o1=o1, solve='x')
 def get_tBo1A():
   h = random.randint(5, 7)
   o1 = random.randint(20, 45)
   w = h * math.tan(math.radians(o1))
-  return t_o1.render(w=w, h=h, b=h, a='x', o1=o1, angle=o1, solve='x')
+  return t_o1.render(w=w, h=h, b=h, a='x', o1=o1, solve='x')
 def get_tBo1o2():
   h = random.randint(5, 7)
   o1 = random.randint(20, 45)
@@ -116,12 +116,12 @@ def get_tBo2x():
   h = random.randint(5, 7)
   o2 = random.randint(20, 45)
   w = h / math.tan(math.radians(o2))
-  return t_o2.render(w=w, h=h, b=h, c='x', o2=o2, angle=o2, solve='x')
+  return t_o2.render(w=w, h=h, b=h, c='x', o2=o2, solve='x')
 def get_tBo2A():
   h = random.randint(5, 7)
   o2 = random.randint(20, 45)
   w = h / math.tan(math.radians(o2))
-  return t_o2.render(w=w, h=h, b=h, a='x', o2=o2, angle=o2, solve='x')
+  return t_o2.render(w=w, h=h, b=h, a='x', o2=o2, solve='x')
 def get_tBo2o1():
   h = random.randint(5, 7)
   o2 = random.randint(20, 45)
@@ -132,13 +132,13 @@ def get_tCo1A():
   o1 = random.randint(20, 45)
   w = x * math.sin(math.radians(o1))
   h = x * math.cos(math.radians(o1))
-  return t_o1.render(w=w, h=h, a='x', c=x, o1=o1, angle=o1, solve='x')
+  return t_o1.render(w=w, h=h, a='x', c=x, o1=o1, solve='x')
 def get_tCo1B():
   x = random.randint(5, 7)
   o1 = random.randint(20, 45)
   w = x * math.sin(math.radians(o1))
   h = x * math.cos(math.radians(o1))
-  return t_o1.render(w=w, h=h, b='x', c=x, o1=o1, angle=o1, solve='x')
+  return t_o1.render(w=w, h=h, b='x', c=x, o1=o1, solve='x')
 def get_tCo1o2():
   x = random.randint(5, 7)
   o1 = random.randint(20, 45)
@@ -150,13 +150,13 @@ def get_tCo2A():
   o2 = random.randint(20, 45)
   w = x * math.cos(math.radians(o2))
   h = x * math.sin(math.radians(o2))
-  return t_o2.render(w=w, h=h, a='x', c=x, o2=o2, angle=o2, solve='x')
+  return t_o2.render(w=w, h=h, a='x', c=x, o2=o2, solve='x')
 def get_tCo2B():
   x = random.randint(5, 7)
   o2 = random.randint(20, 45)
   w = x * math.cos(math.radians(o2))
   h = x * math.sin(math.radians(o2))
-  return t_o2.render(w=w, h=h, b='x', c=x, o2=o2, angle=o2, solve='x')
+  return t_o2.render(w=w, h=h, b='x', c=x, o2=o2, solve='x')
 def get_tCo2o1():
   x = random.randint(5, 7)
   o2 = random.randint(20, 45)
