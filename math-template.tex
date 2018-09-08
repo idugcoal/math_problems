@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{tikz,amsmath,amssymb,tkz-euclide}
 \usepackage{siunitx}
+\usepackage{forloop}
 \usetikzlibrary{calc,angles,quotes,matrix,positioning}
 \usetkzobj{all}
 
@@ -20,59 +21,15 @@ Please show \textbf{all} your work! Answers without supporting work will not be 
 \ExamNameLine
 
 \begin{enumerate}
-\item 
-    \VAR{q1}
-\item
-    \VAR{q2}
-\item 
-    \VAR{q3}
-\item
-    \VAR{q4}
-\item 
-    \VAR{q5}
-\item
-    \VAR{q6}
-\item 
-    \VAR{q7}
-\item
-    \VAR{q8}
-\item
-    \VAR{q9}
-\item 
-    \VAR{q10}
-\item 
-    \VAR{q11}
-\item
-    \VAR{q12}
-\item 
-    \VAR{q13}
-\item
-    \VAR{q14}
-\item 
-    \VAR{q15}
-\item
-    \VAR{q16}
-\item 
-    \VAR{q17}
-\item
-    \VAR{q18}
-\item
-    \VAR{q19}
-\item
-    \VAR{q20}
-\item 
-    \VAR{q21}
-\item
-    \VAR{q22}
-\item 
-    \VAR{q23}
-\item
-    \VAR{q24}
-\item 
-    \VAR{q25}
-\item
-    \VAR{q26}
-\item 
-    \VAR{q27}
+\BLOCK{for key, question in questions | dictsort}
+    \item 
+    \VAR{question}
+    \begin{enumerate}
+    \BLOCK{for key, answer in answers | dictsort}
+        \item
+        \VAR{answer}
+    \BLOCK{endfor}
+    \end{enumerate}
+\BLOCK{endfor}
 \end{enumerate}
 \end{document}
