@@ -33,7 +33,8 @@ def get_tb():
 def get_gb():
   return g_b.render(n=-5, d=3)
 def get_rdb():
-  return r_db.render(w=8.6, h=5.2)
+  answers = {1: 67, 2: 68, 3: 69, 4: 70}
+  return r_db.render(w=8.6, h=5.2, t=3, answers=answers)
 def get_tABx():
   h = random.randint(3, 8)
   w = random.randint(3, 8)
