@@ -57,6 +57,7 @@ questions = {
   30 : rtt.get_tb(),
   31 : angles.get_coterminal(),
   32 : arcs.get_arclength(),
+  33 : angles.get_convert(),
 }
 
 template = latex_jinja_env.get_template(in_file)

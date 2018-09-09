@@ -21,6 +21,7 @@ latex_jinja_env = jinja2.Environment(
 )
 
 coterminal = latex_jinja_env.get_template('templates/angles/coterminal.tex')
+convert = latex_jinja_env.get_template('templates/angles/convert.tex')
 
 def get_coterminal():
   angle = random.randint(-360, 360)
@@ -34,4 +35,16 @@ def get_coterminal():
   answer = answers[0]
   random.shuffle(answers)
   return coterminal.render(angle=angle, answers=answers)
-
+def get_convert():
+  angle = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
+  multiplier = random.randint(1, 3)
+  angle = angle * multiplier
+  answers = [
+    math.radians(angle),
+    angle + 360,
+    360 * math.radians(angle),
+    math.radians(360)
+  ]
+  answer = answers[0]
+  random.shuffle(answers)
+  return convert.render(angle = angle, answers=answers)
