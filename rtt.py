@@ -38,11 +38,23 @@ def get_rdb():
 def get_tABx():
   h = random.randint(3, 8)
   w = random.randint(3, 8)
-  return t_x.render(w=w, h=h, a=w, b=h, c='x', solve='x')
+  answers = {
+    1: round(math.sqrt(math.pow(h, 2) + math.pow(w, 2)), 2),
+    2: round(math.sqrt(abs(math.pow(h, 2) - math.pow(w, 2))), 2),
+    3: round(math.pow(h, 2) + math.pow(w, 2), 2),
+    4: round(h + w, 2)
+  }
+  return t_x.render(w=w, h=h, a=w, b=h, c='x', solve='x', answers=answers)
 def get_tABo1(): 
   h = random.randint(3, 8)
   w = random.randint(3, 8)
-  return t_o1.render(w=w, h=h, a=w, b=h, o1='$\\theta$', solve='$\\theta$')
+  answers = {
+    1: round(math.degrees(math.atan(w/h)), 2),
+    2: round(2, 2),
+    3: round(2, 2),
+    4: round(2, 2)
+  }
+  return t_o1.render(w=w, h=h, a=w, b=h, o1='$\\theta$', solve='$\\theta$', answers=answers)
 def get_tABo2():
   h = random.randint(3, 8)
   w = random.randint(3, 8) 
