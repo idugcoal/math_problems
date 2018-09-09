@@ -5,6 +5,7 @@ from jinja2 import Template
 
 import rtt
 import angles
+import arcs
 
 latex_jinja_env = jinja2.Environment(
   block_start_string = '\BLOCK{',
@@ -54,7 +55,8 @@ questions = {
   28 : rtt.get_rdb(),
   29 : rtt.get_gb(),
   30 : rtt.get_tb(),
-  31 : angles.get_coterminal()
+  31 : angles.get_coterminal(),
+  32 : arcs.get_arclength(),
 }
 
 template = latex_jinja_env.get_template(in_file)
