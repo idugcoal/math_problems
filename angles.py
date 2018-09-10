@@ -21,7 +21,8 @@ latex_jinja_env = jinja2.Environment(
 )
 
 coterminal = latex_jinja_env.get_template('templates/angles/coterminal.tex')
-convert = latex_jinja_env.get_template('templates/angles/convert.tex')
+convertDtoR = latex_jinja_env.get_template('templates/angles/convertDtoR.tex')
+convertRtoD = latex_jinja_env.get_template('templates/angles/convertRtoD.tex')
 
 def get_coterminal():
   angle = random.randint(-360, 360)
@@ -35,10 +36,15 @@ def get_coterminal():
   answer = answers[0]
   random.shuffle(answers)
   return coterminal.render(angle=angle, answers=answers)
-def get_convert():
+
+def get_convertDtoR():
   angle = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
   multiplier = random.randint(1, 3)
   angle = angle * multiplier
+  prompts = [
+    'Convert ' + str(angle) + 'º into radians.',
+    'What is ' + str(angle) +' º, expressed into radians?'
+  ]
   answers = [
     math.radians(angle),
     angle + 360,
@@ -46,5 +52,6 @@ def get_convert():
     math.radians(360)
   ]
   answer = answers[0]
+  random.shuffle(prompts)
   random.shuffle(answers)
-  return convert.render(angle = angle, answers=answers)
+  return convertDtoR.render(angle = angle, prompt=prompts[0], answers=answers)
