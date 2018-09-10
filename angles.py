@@ -20,11 +20,12 @@ latex_jinja_env = jinja2.Environment(
   loader = jinja2.FileSystemLoader(os.path.abspath('.'))
 )
 
-coterminal = latex_jinja_env.get_template('templates/angles/coterminal.tex')
+coterminalD = latex_jinja_env.get_template('templates/angles/coterminalD.tex')
+coterminalR = latex_jinja_env.get_template('templates/angles/coterminalR.tex')
 convertDtoR = latex_jinja_env.get_template('templates/angles/convertDtoR.tex')
 convertRtoD = latex_jinja_env.get_template('templates/angles/convertRtoD.tex')
 
-def get_coterminal():
+def get_coterminalD():
   angle = random.randint(-360, 360)
   multiplier = random.randint(1, 3)
   answers = [

@@ -1,19 +1,8 @@
-Solve for \VAR{solve}.
-\newline
+Sketch the angle in standard position: \[\frac{\VAR{n}\pi}{\VAR{d}}\]
+
 \begin{tikzpicture}
-    \coordinate (A) at (0, 0);
-    \coordinate (B) at (\VAR{w}, 0);
-    \coordinate (C) at (\VAR{w}, \VAR{h});
-
-    \draw [very thick] (A) -- (B) node [midway, below] {\VAR{a}}
-      -- (C) node [midway, right] {\VAR{b}}
-      -- cycle node [midway, above left] {\VAR{c}};
-    \newcommand{\ranglesize}{0.3cm}
-    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
-
-    % \tkzFindAngle(A,C,B) 
-    % \tkzGetAngle{angleACB};
-    \tkzMarkAngle[draw=black,opacity=.5](A,C,B)
-    \tkzLabelAngle[dist=1.2](A,C,B){\VAR{o1}}
+\draw[help lines, color=gray!30, dashed] (-4.9,-4.9) grid (4.9,4.9);
+\draw[->,ultra thick] (-5,0)--(5,0) node[right]{$x$};
+\draw[->,ultra thick] (0,-5)--(0,5) node[above]{$y$};
 
 \end{tikzpicture}
