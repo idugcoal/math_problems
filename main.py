@@ -55,7 +55,7 @@ questions = {
   28 : rtt.get_rdb(),
   29 : rtt.get_gb(),
   30 : rtt.get_tb(),
-  31 : angles.get_coterminal(),
+  31 : angles.get_coterminalD(),
   32 : arcs.get_arclength(),
   33 : angles.get_convertDtoR(),
 }

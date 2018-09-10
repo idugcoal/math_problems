@@ -36,7 +36,7 @@ def get_coterminalD():
   ]
   answer = answers[0]
   random.shuffle(answers)
-  return coterminal.render(angle=angle, answers=answers)
+  return coterminalD.render(angle=angle, answers=answers)
 
 def get_convertDtoR():
   angle = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
