@@ -20,7 +20,6 @@ latex_jinja_env = jinja2.Environment(
   loader = jinja2.FileSystemLoader(os.path.abspath('.'))
 )
 
-# coterminal = latex_jinja_env.get_template('templates/arcs/arclength.tex')
 al_cma = latex_jinja_env.get_template('templates/arcs/al_cma.tex')
 al_rma = latex_jinja_env.get_template('templates/arcs/al_rma.tex')
 al_dma = latex_jinja_env.get_template('templates/arcs/al_dma.tex')
@@ -30,20 +29,6 @@ al_lrm = latex_jinja_env.get_template('templates/arcs/al_lrm.tex')
 al_lmc = latex_jinja_env.get_template('templates/arcs/al_lmc.tex')
 al_lmr = latex_jinja_env.get_template('templates/arcs/al_lmr.tex')
 al_lmd = latex_jinja_env.get_template('templates/arcs/al_lmd.tex')
-
-
-# def get_arclength():
-#   radius = random.randint(2, 15)
-#   angle = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
-#   answers = [
-#     radius * math.radians(angle),
-#     360 * math.radians(angle),
-#     360 * radius,
-#     angle * radius
-#   ]
-#   answer = answers[0]
-#   random.shuffle(answers)
-#   return coterminal.render(angle=angle, radius=radius, answers=answers)
 
 def get_al_cma():
   c = random.randint(1, 1500)

@@ -12,7 +12,7 @@ latex_jinja_env = jinja2.Environment(
   variable_start_string = '\VAR{',
   variable_end_string = '}',
   comment_start_string = '\#{',
-  comment_end_string = '}',
+  comment_end_string = '}', 
   line_statement_prefix = '%%',
   line_comment_prefix = '%#',
   trim_blocks = True,
@@ -24,6 +24,8 @@ coterminalD = latex_jinja_env.get_template('templates/angles/coterminalD.tex')
 coterminalR = latex_jinja_env.get_template('templates/angles/coterminalR.tex')
 convertDtoR = latex_jinja_env.get_template('templates/angles/convertDtoR.tex')
 convertRtoD = latex_jinja_env.get_template('templates/angles/convertRtoD.tex')
+referenceD = latex_jinja_env.get_template('templates/angles/referenceD.tex')
+referenceR = latex_jinja_env.get_template('templates/angles/referenceR.tex')
 
 a = 3
 b = 4
@@ -129,7 +131,7 @@ answer_options = {
 }
 
 # answer_expressions = {
-  # 1: '$\\frac{\VAR{a}}{\VAR{b}}$',
+  # 1: '$sin$$\frac{\VAR{a}}{\VAR{b}}$',
   # 2: '$\\frac{\VAR{a}}{\VAR{b}}$',
   # 2: '\\sin\\frac{\\VAR{a}}{\\VAR{c}}',
   # 3: '\\sin\\frac{\\VAR{b}}{\\VAR{a}}',
@@ -230,20 +232,17 @@ def get_coterminalD():
   angle = random.randint(-360, 360)
   multiplier = random.randint(1, 3)
   answers = [
-    angle + (360 * multiplier),
-    360,
-    angle - 180,
-    90 + angle
+    (angle * math.pi) / 180,
+    180 / (angle * math.pi),
+    angle * math.pi,
+    math.radians(random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330]))
   ]
   answer = answers[0]
   random.shuffle(answers)
-  # print (answer_expressions)
   return coterminalD.render(angle=angle, answers=answers, a=a,b=b,c=c,o1=o1,o2=o2)
 
 def get_convertDtoR():
-  angle = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
-  multiplier = random.randint(1, 3)
-  angle = angle * multiplier
+  angle = random.randint(1, 359)
   prompts = [
     'Convert ' + str(angle) + 'º into radians.',
     'What is ' + str(angle) +' º, expressed into radians?'
@@ -256,5 +255,31 @@ def get_convertDtoR():
   ]
   answer = answers[0]
   random.shuffle(prompts)
-  random.shuffle(answers)
-  return convertDtoR.render(angle = angle, prompt=prompts[0], answers=answers)
+  return convertDtoR.render(angle=angle, answers=answers, prompt=prompts[0])
+
+def get_convertRtoD():
+  angle = random.randint(1, 360)
+  answers = [
+    math.radians(angle),
+    angle + 360,
+    360 * math.radians(angle),
+    math.radians(360)
+  ]
+  return convertRtoD.render(angle=angle, answers=answers)
+
+def get_referenceD():
+  angle = random.randint(1, 360)
+  multiplier = random.choice([-3, -2, -1, 1, 2, 3])
+  prompt = angle + (360 * multiplier)
+  print(angle, multiplier)
+  if(prompt > 1 + (360 * multiplier) and prompt < 89 + (360 * multiplier) ):
+    answer = prompt - (360 * multiplier)
+  elif(prompt > 91 + (360 * multiplier) and prompt < 179 + (360 * multiplier)):
+    answer = 180 - (prompt - (360 * multiplier))
+  elif(prompt > 181 + (360 * multiplier) and prompt < 269 + (360 * multiplier)):
+    answer = prompt - (360 * multiplier) - 180
+  else:
+    answer = 360 - (prompt - (360 * multiplier)) 
+  answers = [1, 2, 5]
+  answers.append(answer)
+  return referenceD.render(prompt=prompt, answers=answers)
