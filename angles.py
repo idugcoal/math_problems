@@ -30,6 +30,7 @@ b = 4
 c = 5
 o1 = 36.87
 o2 = 53.13
+
 answer_options = {
   1: math.radians(math.sin(a / b)),
   2: math.radians(math.sin(a / c)),
@@ -125,8 +126,105 @@ answer_options = {
   92: 90 - o2,
   93: 90 + o2,
   94: 180 - o2
-
 }
+
+# answer_expressions = {
+  # 1: '$\\frac{\VAR{a}}{\VAR{b}}$',
+  # 2: '$\\frac{\VAR{a}}{\VAR{b}}$',
+  # 2: '\\sin\\frac{\\VAR{a}}{\\VAR{c}}',
+  # 3: '\\sin\\frac{\\VAR{b}}{\\VAR{a}}',
+  # 4: '\\sin\\frac{\\VAR{b}}{\\VAR{c}}',
+  # 5: '\\sin\\frac{\\VAR{c}}{\\VAR{a}}',
+  # 6: '\\sin\\frac{\\VAR{c}}{\\VAR{b}}',
+  # 7: '\\arcsin\\frac{\\VAR{a}}{\\VAR{b}}',
+  # 8: '\\arcsin\\frac{\\VAR{a}}{\\VAR{c}}',
+  # 9: '\\arcsin\\frac{\\VAR{b}}{\\VAR{a}}',
+  # 10: '\\arcsin\\frac{\\VAR{b}}{\\VAR{c}}',
+  # 11: '\\arcsin\\frac{\\VAR{c}}{\\VAR{a}}',
+  # 12: '\\arcsin\\frac{\\VAR{c}}{\\VAR{b}}',
+  # 13: 'a\\frac{}{} \\sin\\VAR{o1}',
+  # 14: 'a\\frac{}{} \\cos\\VAR{o1}',
+  # 15: 'a\\frac{}{} \\tan\\VAR{o1}',
+  # 16: 'a\\frac{}{} \\sin\\VAR{o2}',
+  # 17: 'a\\frac{}{} \\cos\\VAR{o2}',
+  # 18: 'a\\frac{}{} \\tan\\VAR{o2}',
+  # 19: '\\cos\\frac{\\VAR{a}}{\\VAR{b}}',
+  # 20: '\\cos\\frac{\\VAR{a}}{\\VAR{c}}',
+  # 21: '\\cos\\frac{\\VAR{b}}{\\VAR{a}}',
+  # 22: '\\cos\\frac{\\VAR{b}}{\\VAR{c}}',
+  # 23: '\\cos\\frac{\\VAR{c}}{\\VAR{a}}',
+  # 24: '\\cos\\frac{\\VAR{c}}{\\VAR{b}}',
+  # 25: '\\arccos\\frac{\\VAR{a}}{\\VAR{b}}',
+  # 26: '\\arccos\\frac{\\VAR{a}}{\\VAR{c}}',
+  # 27: '\\arccos\\frac{\\VAR{b}}{\\VAR{a}}',
+  # 28: '\\arccos\\frac{\\VAR{b}}{\\VAR{c}}',
+  # 29: '\\arccos\\frac{\\VAR{c}}{\\VAR{a}}',
+  # 30: '\\arccos\\frac{\\VAR{c}}{\\VAR{b}}',
+  # 31: '\\frac{\\VAR{b}}{\\sin\\VAR{o1}}',
+  # 32: '\\frac{\\VAR{b}}{\\cos\\VAR{o1}}',
+  # 33: '\\frac{\\VAR{b}}{\\tan\\VAR{o1}}',
+  # 34: '\\frac{\\VAR{b}}{\\sin\\VAR{o2}}',
+  # 35: '\\frac{\\VAR{b}}{\\cos\\VAR{o2}}',
+  # 36: '\\frac{\\VAR{b}}{\\tan\\VAR{o2}}',
+  # 37: '\\tan\\frac{\\VAR{a}}{\\VAR{b}}',
+  # 38: '\\tan\\frac{\\VAR{a}}{\\VAR{c}}',
+  # 39: '\\tan\\frac{\\VAR{b}}{\\VAR{a}}',
+  # 40: '\\tan\\frac{\\VAR{b}}{\\VAR{c}}',
+  # 41: '\\tan\\frac{\\VAR{c}}{\\VAR{a}}',
+  # 42: '\\tan\\frac{\\VAR{c}}{\\VAR{b}}',
+  # 43: '\\arctan\\frac{\\VAR{a}}{\\VAR{b}}',
+  # 44: '\\arctan\\frac{\\VAR{a}}{\\VAR{c}}',
+  # 45: '\\arctan\\frac{\\VAR{b}}{\\VAR{a}}',
+  # 46: '\\arctan\\frac{\\VAR{b}}{\\VAR{c}}',
+  # 47: '\\arctan\\frac{\\VAR{c}}{\\VAR{a}}',
+  # 48: '\\arctan\\frac{\\VAR{c}}{\\VAR{b}}',
+  # 49: '\\frac{\\VAR{c}}{\\sin\\VAR{o1}}',
+  # 50: '\\frac{\\VAR{c}}{\\cos\\VAR{o1}}',
+  # 51: '\\frac{\\VAR{c}}{\\tan\\VAR{o1}}',
+  # 52: '\\frac{\\VAR{c}}{\\sin\\VAR{o2}}',
+  # 53: '\\frac{\\VAR{c}}{\\cos\\VAR{o2}}',
+  # 54: '\\frac{\\VAR{c}}{\\tan\\VAR{o2}}',
+  # 55: 'math.sqrt(math.pow(c, 2) - math.pow(b, 2))',
+  # 56: 'math.sqrt(math.pow(c, 2) - math.pow(a, 2))',
+  # 57: 'a * \\sin\\VAR{o1}',
+  # 58: 'a * \\cos\\VAR{o1}',
+  # 59: 'a * \\tan\\VAR{o1}',
+  # 60: 'b * \\sin\\VAR{o1}',
+  # 61: 'b * \\cos\\VAR{o1}',
+  # 62: 'b * \\tan\\VAR{o1}',
+  # 63: 'c * \\sin\\VAR{o1}',
+  # 64: 'c * \\cos\\VAR{o1}',
+  # 65: 'c * \\tan\\VAR{o1}',
+  # 66: 'a * \\sin\\VAR{o2}',
+  # 67: 'a * \\cos\\VAR{o2}',
+  # 68: 'a * \\tan\\VAR{o2}',
+  # 69: 'b * \\sin\\VAR{o2}',
+  # 70: 'b * \\cos\\VAR{o2}',
+  # 71: 'b * \\tan\\VAR{o2}',
+  # 72: 'c * \\sin\\VAR{o2}',
+  # 73: 'c * \\cos\\VAR{o2}',
+  # 74: 'c * \\tan\\VAR{o2}',
+  # 75: 'math.sqrt(math.pow(a, 2) + math.pow(b, 2))',
+  # 76: 'math.sqrt(math.pow(c, 2) - math.pow(b, 2))',
+  # 77: 'math.sqrt(math.pow(c, 2) - math.pow(a, 2))',
+  # 78: '90 - o1',
+  # 79: '90 - o2',
+  # 80: 'math.sqrt(math.fabs(math.pow(a, 2) - math.pow(b, 2)))',
+  # 81: 'a + b',
+  # 82: 'math.pow(a, 2) + math.pow(b, 2)',
+  # 83: 'math.sqrt(math.pow(a, 2)) + math.sqrt(math.pow(b, 2))',
+  # 84: 'math.sqrt(math.pow(c, 2) + math.pow(b, 2))',
+  # 85: 'math.pow(c, 2) - math.pow(b, 2)',
+  # 86: 'math.sqrt(math.pow(c, 2) + math.pow(a, 2))',
+  # 87: 'math.pow(c, 2) - math.pow(a, 2)',
+  # 88: '90 - o1',
+  # 89: '90 + o1',
+  # 90: '45',
+  # 91: '180 - o1',
+  # 92: '90 - o2',
+  # 93: '90 + o2',
+  # 94: '180 - o2'
+# }
 
 def get_coterminalD():
   angle = random.randint(-360, 360)
@@ -139,8 +237,8 @@ def get_coterminalD():
   ]
   answer = answers[0]
   random.shuffle(answers)
-  print (answer_options[13])
-  return coterminalD.render(angle=angle, answers=answers)
+  # print (answer_expressions)
+  return coterminalD.render(angle=angle, answers=answers, a=a,b=b,c=c,o1=o1,o2=o2)
 
 def get_convertDtoR():
   angle = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])

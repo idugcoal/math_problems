@@ -25,9 +25,9 @@ in_file = 'math-template.tex'
 out_file = 'jinjatest'
 
 questions = {
-  1 : rtt.get_tABx(),     
-  2 : rtt.get_tABo1(),
-  3 : rtt.get_tABo2(),
+  # 1 : rtt.get_tABx(),     
+  # 2 : rtt.get_tABo1(),
+  # 3 : rtt.get_tABo2(),
   # 4 : rtt.get_tBCx(),
   # 5 : rtt.get_tBCo1(),
   # 6 : rtt.get_tBCo2(),
@@ -52,12 +52,21 @@ questions = {
   # 25 : rtt.get_tCo2A(),
   # 26 : rtt.get_tCo2B(),
   # 27 : rtt.get_tCo2o1(),  #extra info
-  28 : rtt.get_rdb(),
-  29 : rtt.get_gb(),
-  30 : rtt.get_tb(),
-  31 : angles.get_coterminalD(),
-  32 : arcs.get_arclength(),
-  33 : angles.get_convertDtoR(),
+  # 28 : rtt.get_rdb(),
+  # 29 : rtt.get_gb(),
+  # 30 : rtt.get_tb(),
+  # 31 : angles.get_coterminalD(),
+  # 32 : arcs.get_arclength(),
+  # 33 : angles.get_convertDtoR(),
+  34 : arcs.get_al_cma(),
+  35 : arcs.get_al_rma(),
+  36 : arcs.get_al_dma(),
+  37 : arcs.get_al_lcm(),
+  38 : arcs.get_al_lrm(),
+  39 : arcs.get_al_ldm(),
+  40 : arcs.get_al_lmc(),
+  41 : arcs.get_al_lmr(),
+  42 : arcs.get_al_lmd(),
 }
 
 template = latex_jinja_env.get_template(in_file)
