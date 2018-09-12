@@ -267,19 +267,39 @@ def get_convertRtoD():
   ]
   return convertRtoD.render(angle=angle, answers=answers)
 
+# TODO: if answer appears twice, add 15 to it
 def get_referenceD():
-  angle = random.randint(1, 360)
+  # angle = random.randint(1, 360)
+  angle = 315
   multiplier = random.choice([-3, -2, -1, 1, 2, 3])
   prompt = angle + (360 * multiplier)
   print(angle, multiplier)
   if(prompt > 1 + (360 * multiplier) and prompt < 89 + (360 * multiplier) ):
-    answer = prompt - (360 * multiplier)
+    answers = [
+      prompt - (360 * multiplier),
+      random.choice([180, 360]),
+      abs(angle),
+    ]
   elif(prompt > 91 + (360 * multiplier) and prompt < 179 + (360 * multiplier)):
-    answer = 180 - (prompt - (360 * multiplier))
+    answers = [
+      180 - (prompt - (360 * multiplier)),
+      90 + (prompt - (360 * multiplier)),
+      random.choice([180, 360]),
+      abs(angle),
+    ]
   elif(prompt > 181 + (360 * multiplier) and prompt < 269 + (360 * multiplier)):
-    answer = prompt - (360 * multiplier) - 180
+    answers = [
+      prompt - (360 * multiplier) - 180,
+      270 - (prompt - (360 * multiplier)),
+      random.choice([180, 360]),
+      abs(angle),
+    ]
   else:
-    answer = 360 - (prompt - (360 * multiplier)) 
-  answers = [1, 2, 5]
-  answers.append(answer)
+    answers = [
+      360 - (prompt - (360 * multiplier)),
+      (prompt - (360 * multiplier)) - 270,
+      random.choice([180, 360]),
+      abs(angle),
+    ] 
+  random.shuffle(answers)
   return referenceD.render(prompt=prompt, answers=answers)
