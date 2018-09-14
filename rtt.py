@@ -12,13 +12,19 @@ r_db = latex_jinja_env.get_template('templates/rectangles/r_db.tex')
 g_b = latex_jinja_env.get_template('templates/graphs/blank.tex')
 t_b = latex_jinja_env.get_template('templates/tables/blank.tex')
 
-def get_tb():
-  return t_b.render(i1=1,i2=2,i3=3,i4=4,i5=5,i6=6,o1=-2,o2=0,o3=4,o4=10,o5=18,o6=28)
-def get_gb():
-  return g_b.render(n=-5, d=3)
-def get_rdb():
-  answers = {1: 67, 2: 68, 3: 69, 4: 70}
-  return r_db.render(w=8.6, h=5.2, t=3, answers=answers)
+# def get_tb():
+#   return t_b.render(i1=1,i2=2,i3=3,i4=4,i5=5,i6=6,o1=-2,o2=0,o3=4,o4=10,o5=18,o6=28)
+# def get_gb():
+#   return g_b.render(n=-5, d=3)
+# def get_rdb():
+#   answers = {1: 67, 2: 68, 3: 69, 4: 70}
+#   return r_db.render(w=8.6, h=5.2, t=3, answers=answers)
+
+def get_answer(a=None, b=None, c=None, o1=None, o2=None):
+  return {
+    a, b, c, o1, o2
+  }
+
 def get_tABx():
   h = random.randint(3, 8)
   w = random.randint(3, 8)
