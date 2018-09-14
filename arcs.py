@@ -1,24 +1,9 @@
 import math
 import random
-import jinja2
-import os
 import subprocess
-from jinja2 import Template
 import sys
-
-latex_jinja_env = jinja2.Environment(
-  block_start_string = '\BLOCK{',
-  block_end_string = '}',
-  variable_start_string = '\VAR{',
-  variable_end_string = '}',
-  comment_start_string = '\#{',
-  comment_end_string = '}',
-  line_statement_prefix = '%%',
-  line_comment_prefix = '%#',
-  trim_blocks = True,
-  autoescape = False,
-  loader = jinja2.FileSystemLoader(os.path.abspath('.'))
-)
+from config import latex_jinja_env
+from config import formulas_al
 
 al_cma = latex_jinja_env.get_template('templates/arcs/al_cma.tex')
 al_rma = latex_jinja_env.get_template('templates/arcs/al_rma.tex')
@@ -30,21 +15,47 @@ al_lmc = latex_jinja_env.get_template('templates/arcs/al_lmc.tex')
 al_lmr = latex_jinja_env.get_template('templates/arcs/al_lmr.tex')
 al_lmd = latex_jinja_env.get_template('templates/arcs/al_lmd.tex')
 
-def get_al_cma():
-  c = random.randint(1, 1500)
-  m = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
-  answers = [
-    (c * m) / 360,
-    c * m - 360,
-    m / (360 * c),
-    360 / (c * m)
-  ]
-  answer = answers[0]
+def get_c(d=None, r=None):
+  if d is None:
+    return math.pi * r * 2
+  else:
+    return math.pi * d
+
+def get_l(c, m):
+  return (c * m) / 360
+
+def get_m(c, l):
+  return (l * 360) / c
+
+def get_answer(l=None, m=None, c=None, d=None, r=None):
+  if c is None:
+    c = get_c(r, d)
+  else:
+    if l is None:
+      l = get_l(c, m)
+    else:
+      m = get_m(c, l)
+  print(l, m, c)
+
+def get_random_unit_circle_angle(): 
+  return random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
+
+def get_random_circumference():
+  return random.randint(1, 1500)
+
+def get_al_cml():
+  c = get_random_circumference()
+  m = get_random_unit_circle_angle()
+  answers=[1,2,3,4]
+  answer = get_answer(c=c, m=m)
+  # answer = answers[0]
+  print(eval(formulas_al[2], {'c': c, 'm': m}))
   random.shuffle(answers)
   return al_cma.render(c=c, m=m, answers=answers)
-def get_al_rma():
+
+def get_al_rml():
   r = random.randint(1, 1500)
-  m = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
+  m = get_random_unit_circle_angle()
   answers = [
     (2 * math.pi * r * m) / 360,
     (r * m) / 360,
@@ -54,9 +65,10 @@ def get_al_rma():
   answer = answers[0]
   random.shuffle(answers)
   return al_rma.render(r=r, m=m, answers=answers)
-def get_al_dma():
+
+def get_al_dml():
   d = random.randint(1, 1500)
-  m = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
+  m = get_random_unit_circle_angle()
   answers = [
     (math.pi * d * m) / 360,
     360 / (math.pi * d * m),
@@ -66,9 +78,10 @@ def get_al_dma():
   answer = answers[0]
   random.shuffle(answers)
   return al_dma.render(d=d, m=m, answers=answers)
+
 def get_al_lcm():
   l = random.randint(1, 500)
-  c = random.randint(1, 500)
+  c = get_random_circumference()
   answers = [
     (l * 360) / c,
     c / (l *360),
@@ -78,6 +91,7 @@ def get_al_lcm():
   answer = answers[0]
   random.shuffle(answers)
   return al_lcm.render(l=l, c=c, answers=answers)
+
 def get_al_lrm():
   l = random.randint(1, 500)
   r = random.randint(1, 300)
@@ -90,6 +104,7 @@ def get_al_lrm():
   answer = answers[0]
   random.shuffle(answers)
   return al_lrm.render(l=l, r=r, answers=answers)
+
 def get_al_ldm():
   l = random.randint(1, 500)
   d = random.randint(1, 300)
@@ -102,9 +117,10 @@ def get_al_ldm():
   answer = answers[0]
   random.shuffle(answers)
   return al_ldm.render(l=l, d=d, answers=answers)
+
 def get_al_lmc():
   l = random.randint(1, 500)
-  m = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
+  m = get_random_unit_circle_angle()
   answers = [
     (l * 360) / m,
     m / (l * 360),
@@ -114,9 +130,10 @@ def get_al_lmc():
   answer = answers[0]
   random.shuffle(answers)
   return al_lmc.render(l=l, m=m, answers=answers)
+
 def get_al_lmr():
   l = random.randint(1, 500)
-  m = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
+  m = get_random_unit_circle_angle()
   answers = [
     (l * 360) / (2 * math.pi * m),
     (2 * math.pi * m) / (l * 360),
@@ -126,9 +143,10 @@ def get_al_lmr():
   answer = answers[0]
   random.shuffle(answers)
   return al_lmr.render(l=l, m=m, answers=answers)
+
 def get_al_lmd():
   l = random.randint(1, 500)
-  m = random.choice([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330])
+  m = get_random_unit_circle_angle()
   answers = [
     (l * 360) / (math.pi * m),
     (math.pi * m) / (l * 360),
