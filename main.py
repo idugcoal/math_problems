@@ -24,7 +24,7 @@ latex_jinja_env = jinja2.Environment(
 in_file = 'math-template.tex'
 out_file = 'jinjatest'
 
-questions = {
+# questions = {
   # 1 : rtt.get_tABx(),     
   # 2 : rtt.get_tABo1(),
   # 3 : rtt.get_tABo2(),
@@ -58,20 +58,42 @@ questions = {
   # 31 : angles.get_coterminalD(),
   # 32 : arcs.get_arclength(),
   # 33 : angles.get_convertDtoR(),
-  34 : arcs.get_al_cml(),
-  35 : arcs.get_al_rml(),
-  36 : arcs.get_al_dml(),
-  37 : arcs.get_al_lcm(),
-  38 : arcs.get_al_lrm(),
-  39 : arcs.get_al_ldm(),
-  40 : arcs.get_al_lmc(),
-  41 : arcs.get_al_lmr(),
-  42 : arcs.get_al_lmd(),
+  # 34 : arcs.get_al_cml()['q'],
+  # 35 : arcs.get_al_rml(),
+  # 36 : arcs.get_al_dml(),
+  # 37 : arcs.get_al_lcm(),
+  # 38 : arcs.get_al_lrm(),
+  # 39 : arcs.get_al_ldm(),
+  # 40 : arcs.get_al_lmc(),
+  # 41 : arcs.get_al_lmr(),
+  # 42 : arcs.get_al_lmd(),
   # 43 : angles.get_referenceD(),
   # 44 : angles.get_referenceR(),
   # 45 : angles.get_convertDtoR(),
   # 46 : angles.get_convertRtoD(),
-}
+# }
+
+questions = []
+answers = []
+
+question_list = [
+  arcs.get_al_cml(),
+  arcs.get_al_rml(),
+  arcs.get_al_dml(),
+  arcs.get_al_lcm(),
+  arcs.get_al_lrm(),
+  arcs.get_al_ldm(),
+  arcs.get_al_lmc(),
+  arcs.get_al_lmr(),
+  arcs.get_al_lmd(),
+]
+
+for x in question_list:
+  q = x['q']
+  a = x['a']
+  questions.append(q)
+  answers.append(a)
+
 
 template = latex_jinja_env.get_template(in_file)
 renderedTemplate = template.render(questions=questions)

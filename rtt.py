@@ -3,6 +3,7 @@ import random
 import subprocess
 import sys
 from config import latex_jinja_env
+from config import formulas_a
 
 t_x = latex_jinja_env.get_template('templates/triangles/t_x.tex')
 t_o1 = latex_jinja_env.get_template('templates/triangles/t_o1.tex')
@@ -24,6 +25,15 @@ def get_answer(a=None, b=None, c=None, o1=None, o2=None):
   return {
     a, b, c, o1, o2
   }
+
+def get_options(f, a=None, b=None, c=None, o1=None, o2=None):
+  options = []
+  for formula in formulas_a[f]:
+    options.append(
+      round(eval(formulas_a[f][formula], {'a':a, 'b':b, 'c':c, 'o1':o1, 'o2':o2 }, {'math': math}), 2)
+    )
+  print(options)
+  return options
 
 def get_tABx():
   h = random.randint(3, 8)
