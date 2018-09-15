@@ -20,7 +20,7 @@ def get_random_unit_circle_angle():
 def get_random_circumference():
   return random.randint(1, 1500)
 def get_random_radius():
-  return random.randint(1, 1500)
+  return random.randint(1, 750)
 def get_random_diameter():
   return random.randint(1, 1500)
 def get_random_length():
@@ -70,7 +70,7 @@ def get_options(f, c=None, l=None, m=None, d=None, r=None):
   options = []
   for formula in formulas_al[f]:
     options.append(
-      eval(formulas_al[f][formula], {'c':c, 'l':l, 'm':m, 'd':d, 'r':r }, {'math': math})
+      round(eval(formulas_al[f][formula], {'c':c, 'l':l, 'm':m, 'd':d, 'r':r }, {'math': math}), 2)
     )
   return options
 
