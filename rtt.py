@@ -16,21 +16,94 @@ t_b = latex_jinja_env.get_template('templates/tables/blank.tex')
 # def get_tb():
 #   return t_b.render(i1=1,i2=2,i3=3,i4=4,i5=5,i6=6,o1=-2,o2=0,o3=4,o4=10,o5=18,o6=28)
 # def get_gb():
-#   return g_b.render(n=-5, d=3)
-# def get_rdb():
-#   answers = {1: 67, 2: 68, 3: 69, 4: 70}
-#   return r_db.render(w=8.6, h=5.2, t=3, answers=answers)
-
-def get_answer(a=None, b=None, c=None, o1=None, o2=None):
+#   return {
+#   'q': g_b.render(n=-5, d=3),
+#   'a': 20
+  # }
+def get_rdb():
+  answers = {1: 67, 2: 68, 3: 69, 4: 70}
+  name = ['Doug', 'Dustin']
+  name_action = ['is starting', 'is beginning', 'is following', 'has started', 'is commencing', 'commences']
+  program = ['training program', 'training regimen', 'workout program', 'workout regimen', 'exercise program', 'exercise regimen', 'running regimen', 'running program', 'fitness program', 'fitness regimen', 'cardio training program', 'cardio training regimen', 'cardio workout program', 'cardio workout regimen', 'cardio exercise program', 'cardio exercise regimen', 'cardio running regimen', 'cardio running program', 'cardio fitness program', 'cardio fitness regimen']
+  frequency = ['Every Monday', 'Every Tuesday', 'Every Wednesday', 'Every Thursday', 'Every Friday', 'Every Saturday', 'Every Sunday']
+  move = ['runs', 'sprints', 'jogs']
+  location = ['court', 'field', 'track']
+  length = random.randint(68, 100)
+  unit = ['feet', 'yards', 'meters']
+  width = random.randint(28, 56)
+  start = ['starts', 'begins']
+  point = ['corner', 'point', 'spot']
+  path = ['pattern', 'path', 'combination', 'route']
+  end = ['completes', 'finishes', 'runs']
+  num = random.randint(3, 20)
+  total = ['cover', 'run', 'travel']
+  final = ['in total', 'altogether', 'overall']
   return {
-    a, b, c, o1, o2
+    'q': r_db.render(w=8.6, h=5.2, t=3, 
+      answers= answers,
+      name = random.choice(name),
+      name_action = random.choice(name_action),
+      program = random.choice(program),
+      frequency = random.choice(frequency),
+      move = random.choice(move),
+      location = random.choice(location),
+      length = length,
+      unit = random.choice(unit),
+      width = width,
+      start = random.choice(start),
+      point = random.choice(point),
+      path = random.choice(path),
+      end = random.choice(end),
+      num = num,
+      total = random.choice(total),
+      final = random.choice(final),
+      ),
+    'a': answers
   }
 
-def get_options(f, a=None, b=None, c=None, o1=None, o2=None):
+def get_a(b=None, c=None, o1=None, o2=None):
+  if b is not None and c is not None:
+    return math.sqrt((math.pow(c, 2) - math.pow(b, 2)))
+def get_b(a=None, c=None, o1=None, o2=None):
+  if a is not None and c is not None:
+    return math.sqrt((math.pow(c, 2) - math.pow(a, 2)))
+def get_c(a=None, b=None, o1=None, o2=None):
+  if a is not None and b is not None:
+    return math.pow(a, 2) + math.pow(b, 2)
+def get_o1(a=None, b=None, c=None, o2=None):
+  if o2 is not None:
+    return 90 - o2
+def get_o2(a=None, b=None, c=None, o1=None):
+  if o1 is not None:
+    return 90 - o2
+
+def get_answers(a=None, b=None, c=None, o1=None, o2=None):
+  if o1 is None:
+    o1 = get_o1(a=None, b=None, c=None, o2=None)
+  if o2 is None:
+    o2 = get_o2(a=None, b=None, c=None, o1=None)
+  if a is None:
+    a = get_a(b=None, c=None, o1=None, o2=None)
+  if b is None:
+    b = get_b(a=None, c=None, o1=None, o2=None)
+  if c is None:
+    c = get_c(a=None, b=None, o1=None, o2=None)
+
+
+  return {
+    'a': a,
+    'b': b,
+    'c': c,
+    'o1': o1,
+    'o2': o2
+  }
+
+def get_options(list, a=1, b=1, c=1, o1=1, o2=1):
   options = []
-  for formula in formulas_a[f]:
+  for formula in list:
+    print('formula', formulas_a[formula], a, b, c)
     options.append(
-      round(eval(formulas_a[f][formula], {'a':a, 'b':b, 'c':c, 'o1':o1, 'o2':o2 }, {'math': math}), 2)
+      round(eval(formulas_a[formula], {'a':a, 'b':b, 'c':c, 'o1':o1, 'o2':o2 }, {'math': math}), 2)
     )
   print(options)
   return options
@@ -38,23 +111,23 @@ def get_options(f, a=None, b=None, c=None, o1=None, o2=None):
 def get_tABx():
   h = random.randint(3, 8)
   w = random.randint(3, 8)
-  answers = {
-    1: round(math.sqrt(math.pow(h, 2) + math.pow(w, 2)), 2),
-    2: round(math.sqrt(abs(math.pow(h, 2) - math.pow(w, 2))), 2),
-    3: round(math.pow(h, 2) + math.pow(w, 2), 2),
-    4: round(h + w, 2)
+  answers = get_options(list=[73,78,79,81], a=w, b=h)
+  answer = answers[0]
+  print('answer', answer)
+  return {
+    'q': t_x.render(w=w, h=h, a=w, b=h, c='x', solve='x', answers=answers),
+    'a': answer
   }
-  return t_x.render(w=w, h=h, a=w, b=h, c='x', solve='x', answers=answers)
+
 def get_tABo1(): 
   h = random.randint(3, 8)
   w = random.randint(3, 8)
-  answers = {
-    1: round(math.degrees(math.atan(w/h)), 2),
-    2: round(2, 2),
-    3: round(2, 2),
-    4: round(2, 2)
+  answers = get_options(list=[43,45,9,27], a=w, o1=o1)
+  answer = answers[0]
+  return {
+    'q': t_o1.render(w=w, h=h, a=w, b=h, o1='$\\theta$', solve='$\\theta$', answers=answers),
+    'a': answer
   }
-  return t_o1.render(w=w, h=h, a=w, b=h, o1='$\\theta$', solve='$\\theta$', answers=answers)
 def get_tABo2():
   h = random.randint(3, 8)
   w = random.randint(3, 8) 

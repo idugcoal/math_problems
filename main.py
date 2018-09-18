@@ -2,71 +2,21 @@ import jinja2
 import os
 import subprocess
 from jinja2 import Template
+from config import latex_jinja_env
 
 import rtt
 import angles
 import arcs
 
-latex_jinja_env = jinja2.Environment(
-  block_start_string = '\BLOCK{',
-  block_end_string = '}',
-  variable_start_string = '\VAR{',
-  variable_end_string = '}',
-  comment_start_string = '\#{',
-  comment_end_string = '}',
-  line_statement_prefix = '%%',
-  line_comment_prefix = '%#',
-  trim_blocks = True,
-  autoescape = False,
-  loader = jinja2.FileSystemLoader(os.path.abspath('.'))
-)
-
-in_file = 'math-template.tex'
-out_file = 'jinjatest'
+questions_input_file = 'math-template.tex'
+answers_input_file = 'answer-template.tex'
+math_test = 'math_test'
+answer_key = 'answer_key'
 
 # questions = {
-  # 1 : rtt.get_tABx(),     
-  # 2 : rtt.get_tABo1(),
-  # 3 : rtt.get_tABo2(),
-  # 4 : rtt.get_tBCx(),
-  # 5 : rtt.get_tBCo1(),
-  # 6 : rtt.get_tBCo2(),
-  # 7 : rtt.get_tACx(),
-  # 8 : rtt.get_tACo1(),
-  # 9 : rtt.get_tACo2(),
-  # 10 : rtt.get_tAo1x(),
-  # 11 : rtt.get_tAo1B(),
-  # 12 : rtt.get_tAo1o2(),  #extra info
-  # 13 : rtt.get_tAo2x(),
-  # 14 : rtt.get_tAo2B(),
-  # 15 : rtt.get_tAo2o1(),  #extra info
-  # 16 : rtt.get_tBo1x(),
-  # 17 : rtt.get_tBo1A(),
-  # 18 : rtt.get_tBo1o2(),  #extra info
-  # 19 : rtt.get_tBo2x(),
-  # 20 : rtt.get_tBo2A(),
-  # 21 : rtt.get_tBo2o1(),  #extra info
-  # 22 : rtt.get_tCo1A(),
-  # 23 : rtt.get_tCo1B(),
-  # 24 : rtt.get_tCo1o2(),  #extra info
-  # 25 : rtt.get_tCo2A(),
-  # 26 : rtt.get_tCo2B(),
-  # 27 : rtt.get_tCo2o1(),  #extra info
-  # 28 : rtt.get_rdb(),
-  # 29 : rtt.get_gb(),
   # 30 : rtt.get_tb(),
   # 31 : angles.get_coterminalD(),
-  # 32 : arcs.get_arclength(),
   # 33 : angles.get_convertDtoR(),
-  # 34 : arcs.get_al_cml()['q'],
-  # 35 : arcs.get_al_rml(),
-  # 36 : arcs.get_al_dml(),
-  # 37 : arcs.get_al_lcm(),
-  # 38 : arcs.get_al_lrm(),
-  # 39 : arcs.get_al_ldm(),
-  # 40 : arcs.get_al_lmc(),
-  # 41 : arcs.get_al_lmr(),
-  # 42 : arcs.get_al_lmd(),
   # 43 : angles.get_referenceD(),
   # 44 : angles.get_referenceR(),
   # 45 : angles.get_convertDtoR(),
@@ -76,7 +26,36 @@ out_file = 'jinjatest'
 questions = []
 answers = []
 
-question_list = [
+question_set = [
+  # rtt.get_tABx(),     
+  # rtt.get_tABo1(),
+  # rtt.get_tABo2(),
+  # rtt.get_tBCx(),
+  # rtt.get_tBCo1(),
+  # rtt.get_tBCo2(),
+  # rtt.get_tACx(),
+  # rtt.get_tACo1(),
+  # rtt.get_tACo2(),
+  # rtt.get_tAo1x(),
+  # rtt.get_tAo1B(),
+  # rtt.get_tAo1o2(),  #extra info
+  # rtt.get_tAo2x(),
+  # rtt.get_tAo2B(),
+  # rtt.get_tAo2o1(),  #extra info
+  # rtt.get_tBo1x(),
+  # rtt.get_tBo1A(),
+  # rtt.get_tBo1o2(),  #extra info
+  # rtt.get_tBo2x(),
+  # rtt.get_tBo2A(),
+  # rtt.get_tBo2o1(),  #extra info
+  # rtt.get_tCo1A(),
+  # rtt.get_tCo1B(),
+  # rtt.get_tCo1o2(),  #extra info
+  # rtt.get_tCo2A(),
+  # rtt.get_tCo2B(),
+  # rtt.get_tCo2o1(),  #extra info
+  # rtt.get_gb(),
+  rtt.get_rdb(),
   arcs.get_al_cml(),
   arcs.get_al_rml(),
   arcs.get_al_dml(),
@@ -88,28 +67,46 @@ question_list = [
   arcs.get_al_lmd(),
 ]
 
-for x in question_list:
-  q = x['q']
-  a = x['a']
+for current_question in question_set:
+  q = current_question['q']
+  a = current_question['a']
   questions.append(q)
   answers.append(a)
 
 
-template = latex_jinja_env.get_template(in_file)
-renderedTemplate = template.render(questions=questions)
+question_template = latex_jinja_env.get_template(questions_input_file)
+renderedQuestions = question_template.render(questions=questions)
 
-with open(out_file + '.tex', 'w') as f:
-    f.write(renderedTemplate)
+with open(math_test + '.tex', 'w') as f:
+    f.write(renderedQuestions)
 
-cmd = ['pdflatex', '-interaction', 'batchmode', out_file + '.tex']
+cmd = ['pdflatex', '-interaction', 'batchmode', math_test + '.tex']
 proc = subprocess.Popen(cmd)
 proc.communicate()
 
 retcode = proc.returncode
 if not retcode == 0:
-    os.unlink(out_file + '.pdf')
+    os.unlink(math_test + '.pdf')
     raise ValueError('Error {} executing command: {}'.format(retcode, ' '.join(cmd))) 
 
-# os.unlink(out_file + '.tex')
-# os.unlink(out_file + '.log')
-# os.unlink(out_file + '.aux')
+answer_template = latex_jinja_env.get_template(answers_input_file)
+renderedAnswers = answer_template.render(answers=answers)
+
+with open(answer_key + '.tex', 'w') as f:
+    f.write(renderedAnswers)
+
+cmd = ['pdflatex', '-interaction', 'batchmode', answer_key + '.tex']
+proc = subprocess.Popen(cmd)
+proc.communicate()
+
+retcode = proc.returncode
+if not retcode == 0:
+    os.unlink(answer_key + '.pdf')
+    raise ValueError('Error {} executing command: {}'.format(retcode, ' '.join(cmd))) 
+
+# os.unlink(math_test + '.tex')
+# os.unlink(math_test + '.log')
+# os.unlink(math_test + '.aux')
+# os.unlink(answer_key + '.tex')
+# os.unlink(answer_key + '.log')
+# os.unlink(answer_key + '.aux')
