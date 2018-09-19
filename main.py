@@ -7,6 +7,7 @@ from config import latex_jinja_env
 import rtt
 import angles
 import arcs
+import quadrants
 
 questions_input_file = 'math-template.tex'
 answers_input_file = 'answer-template.tex'
@@ -55,6 +56,7 @@ question_set = [
   # rtt.get_tCo2B(),
   # rtt.get_tCo2o1(),  #extra info
   # rtt.get_gb(),
+  quadrants.get_q_sign(),
   rtt.get_rdb(),
   arcs.get_al_cml(),
   arcs.get_al_rml(),
