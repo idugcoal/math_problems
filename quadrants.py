@@ -7,13 +7,16 @@ from config import formulas_q
 
 q_s = latex_jinja_env.get_template('templates/quadrants/q_sign.tex')
 
-
-
 def get_q_sign():
-  r_quadrant = random.choice(formulas_q)
+  r_answer = random.randint(0, len(formulas_q))
+  r_quadrant = formulas_q[r_answer]
+  r_question = random.choice(r_quadrant)
+  answers = ['Quadrant I', 'Quadrant II', 'Quadrant III', 'Quadrant IV',]
+  answer = answers[r_answer]
+  random.shuffle(answers)
   print(r_quadrant)
   return {
-    'q': q_s.render(term1=r_quadrant[0], sign1=r_quadrant[1], term2=r_quadrant[2], sign2=r_quadrant[3]),
-    'a': 2
+    'q': q_s.render(term1=r_question[0], sign1=r_question[1], term2=r_question[2], sign2=r_question[3], answers=answers),
+    'a': answer
   }
 

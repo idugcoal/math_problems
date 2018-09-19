@@ -172,7 +172,7 @@ formulas_al = {
 }
 
 formulas_q = [
-  # [
+  [
     ['sin', 'positive', 'cos', 'positive'],
     ['sin', 'positive', 'sec', 'positive'],
     ['sin', 'positive', 'tan', 'positive'],
@@ -197,8 +197,8 @@ formulas_q = [
     ['cot', 'positive', 'csc', 'positive'],
     ['cot', 'positive', 'cos', 'positive'],
     ['cot', 'positive', 'sec', 'positive'],
-  # ],
-  # [
+  ],
+  [
     ['sin', 'positive', 'cos', 'negative'],
     ['sin', 'positive', 'sec', 'negative'],
     ['sin', 'positive', 'tan', 'negative'],
@@ -223,8 +223,8 @@ formulas_q = [
     ['cot', 'negative', 'csc', 'positive'],
     ['cot', 'negative', 'cos', 'negative'],
     ['cot', 'negative', 'sec', 'negative'],
-  # ],
-  # [
+  ],
+  [
     ['sin', 'negative', 'cos', 'negative'],
     ['sin', 'negative', 'sec', 'negative'],
     ['sin', 'negative', 'tan', 'positive'],
@@ -249,7 +249,7 @@ formulas_q = [
     ['cot', 'positive', 'csc', 'negative'],
     ['cot', 'positive', 'cos', 'negative'],
     ['cot', 'positive', 'sec', 'negative'],
-  # ],
+  ],
   [
     ['sin', 'negative', 'cos', 'positive'],
     ['sin', 'negative', 'sec', 'positive'],
