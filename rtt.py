@@ -22,7 +22,7 @@ t_b = latex_jinja_env.get_template('templates/tables/blank.tex')
   # }
 def get_rdb():
   answers = {1: 67, 2: 68, 3: 69, 4: 70}
-  name = ['Doug', 'Dustin']
+  name = ['Ben']
   name_action = ['is starting', 'is beginning', 'is following', 'has started', 'is commencing', 'commences']
   program = ['training program', 'training regimen', 'workout program', 'workout regimen', 'exercise program', 'exercise regimen', 'running regimen', 'running program', 'fitness program', 'fitness regimen', 'cardio training program', 'cardio training regimen', 'cardio workout program', 'cardio workout regimen', 'cardio exercise program', 'cardio exercise regimen', 'cardio running regimen', 'cardio running program', 'cardio fitness program', 'cardio fitness regimen']
   frequency = ['Every Monday', 'Every Tuesday', 'Every Wednesday', 'Every Thursday', 'Every Friday', 'Every Saturday', 'Every Sunday']

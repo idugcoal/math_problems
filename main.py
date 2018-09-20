@@ -28,7 +28,7 @@ questions = []
 answers = []
 
 question_set = [
-  # rtt.get_tABx(),     
+  rtt.get_tABx(),     
   # rtt.get_tABo1(),
   # rtt.get_tABo2(),
   # rtt.get_tBCx(),
@@ -107,8 +107,8 @@ if not retcode == 0:
     raise ValueError('Error {} executing command: {}'.format(retcode, ' '.join(cmd))) 
 
 # os.unlink(math_test + '.tex')
-# os.unlink(math_test + '.log')
-# os.unlink(math_test + '.aux')
-# os.unlink(answer_key + '.tex')
-# os.unlink(answer_key + '.log')
-# os.unlink(answer_key + '.aux')
+os.unlink(math_test + '.log')
+os.unlink(math_test + '.aux')
+os.unlink(answer_key + '.tex')
+os.unlink(answer_key + '.log')
+os.unlink(answer_key + '.aux')
