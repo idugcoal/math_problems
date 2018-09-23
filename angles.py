@@ -49,15 +49,24 @@ def get_convertDtoR():
     'Convert ' + str(angle) + 'º into radians.',
     'What is ' + str(angle) +' º, expressed into radians?'
   ]
+  # answers = [
+  #   math.radians(angle),
+  #   angle + 360,
+  #   360 * math.radians(angle),
+  #   math.radians(360)
+  # ]
   answers = [
-    math.radians(angle),
-    angle + 360,
-    360 * math.radians(angle),
-    math.radians(360)
+    (angle * math.pi) / 180,
+    180 / (angle * math.pi),
+    angle * math.pi,
+    5/6
   ]
   answer = answers[0]
   random.shuffle(prompts)
-  return convertDtoR.render(angle=angle, answers=answers, prompt=prompts[0])
+  return {
+  'q': convertDtoR.render(angle=angle, answers=answers, prompt=prompts[0]),
+  'a': answer
+  }
 
 def get_convertRtoD():
   angle = get_random_angle()

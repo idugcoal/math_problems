@@ -4,6 +4,9 @@ import subprocess
 import sys
 from config import latex_jinja_env
 from config import formulas_a
+from config import pythag_triples
+from config import formulas_ftr
+from config import questions_ftr
 
 t_x = latex_jinja_env.get_template('templates/triangles/t_x.tex')
 t_o1 = latex_jinja_env.get_template('templates/triangles/t_o1.tex')
@@ -101,17 +104,39 @@ def get_answers(a=None, b=None, c=None, o1=None, o2=None):
 def get_options(list, a=1, b=1, c=1, o1=1, o2=1):
   options = []
   for formula in list:
-    print('formula', formulas_a[formula], a, b, c)
+    # print('formula', formulas_a[formula], a, b, c)
     options.append(
       round(eval(formulas_a[formula], {'a':a, 'b':b, 'c':c, 'o1':o1, 'o2':o2 }, {'math': math}), 2)
     )
   print(options)
   return options
 
+def get_finding_trig_ratio():
+  p_triple = random.choice(pythag_triples)
+  multiplier = random.randint(p_triple['multi_range']['min'], p_triple['multi_range']['max'])
+  a = p_triple['a'] * multiplier 
+  b = p_triple['b'] * multiplier
+  c = p_triple['c'] * multiplier
+  formula = formulas_ftr[1]
+  question = random.choice(questions_ftr)
+  answer_options = question['answer_options']
+  prompt = question['prompt']
+  # answers = get_options(formulas=formulas_ftr,)
+  print(answer_options)
+  answers = [
+
+  ]
+  return {
+    'q': t_x.render(a=a, b=b, c=c, answers=answers, w=a, h=b, scale=0.2, prompt=prompt),
+    'a': answers
+  }
+
+
+
 def get_tABx():
   h = random.randint(3, 8)
   w = random.randint(3, 8)
-  answers = get_options(list=[73,78,79,81], a=w, b=h)
+  answers = get_options(formulas=formulas_a, list=[73,78,79,81], a=w, b=h)
   answer = answers[0]
   print('answer', answer)
   return {
@@ -122,7 +147,7 @@ def get_tABx():
 def get_tABo1(): 
   h = random.randint(3, 8)
   w = random.randint(3, 8)
-  answers = get_options(list=[43,45,9,27], a=w, o1=o1)
+  answers = get_options(formulas=formulas_a, list=[43,45,9,27], a=w, o1=o1)
   answer = answers[0]
   return {
     'q': t_o1.render(w=w, h=h, a=w, b=h, o1='$\\theta$', solve='$\\theta$', answers=answers),

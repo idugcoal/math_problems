@@ -20,7 +20,6 @@ answer_key = 'answer_key'
   # 33 : angles.get_convertDtoR(),
   # 43 : angles.get_referenceD(),
   # 44 : angles.get_referenceR(),
-  # 45 : angles.get_convertDtoR(),
   # 46 : angles.get_convertRtoD(),
 # }
 
@@ -28,7 +27,9 @@ questions = []
 answers = []
 
 question_set = [
-  rtt.get_tABx(),     
+  angles.get_convertDtoR(),
+  # rtt.get_tABx(),    
+  rtt.get_finding_trig_ratio(), 
   # rtt.get_tABo1(),
   # rtt.get_tABo2(),
   # rtt.get_tBCx(),
@@ -56,7 +57,7 @@ question_set = [
   # rtt.get_tCo2B(),
   # rtt.get_tCo2o1(),  #extra info
   # rtt.get_gb(),
-  quadrants.get_q_sign(),
+  # quadrants.get_q_sign(),
   rtt.get_rdb(),
   arcs.get_al_cml(),
   arcs.get_al_rml(),
@@ -106,9 +107,9 @@ if not retcode == 0:
     os.unlink(answer_key + '.pdf')
     raise ValueError('Error {} executing command: {}'.format(retcode, ' '.join(cmd))) 
 
-# os.unlink(math_test + '.tex')
+os.unlink(math_test + '.tex')
 os.unlink(math_test + '.log')
 os.unlink(math_test + '.aux')
-os.unlink(answer_key + '.tex')
+# os.unlink(answer_key + '.tex')
 os.unlink(answer_key + '.log')
 os.unlink(answer_key + '.aux')

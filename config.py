@@ -17,6 +17,26 @@ latex_jinja_env = jinja2.Environment(
   loader = jinja2.FileSystemLoader(os.path.abspath('.'))
 )
 
+pythag_triples = [
+  {'a': 3, 'b': 4, 'c': 5, 'multi_range': {'min': 1, 'max': 20}},
+  {'a': 5, 'b': 12, 'c': 13, 'multi_range': {'min': 1, 'max': 5}},
+  {'a': 8, 'b': 15, 'c': 17, 'multi_range': {'min': 1, 'max': 4}},
+  {'a': 7, 'b': 24, 'c': 25, 'multi_range': {'min': 1, 'max': 3}},
+  {'a': 20, 'b': 21, 'c': 29, 'multi_range': {'min': 1, 'max': 3}},
+  {'a': 12, 'b': 35, 'c': 37, 'multi_range': {'min': 1, 'max': 1}},
+  {'a': 9, 'b': 40, 'c': 41, 'multi_range': {'min': 1, 'max': 1}},
+  {'a': 28, 'b': 45, 'c': 5, 'multi_range': {'min': 1, 'max': 1}},
+  {'a': 11, 'b': 60, 'c': 61, 'multi_range': {'min': 1, 'max': 1}},
+  {'a': 16, 'b': 63, 'c': 65, 'multi_range': {'min': 1, 'max': 1}},
+  {'a': 48, 'b': 55, 'c': 73, 'multi_range': {'min': 1, 'max': 1}},
+  {'a': 13, 'b': 84, 'c': 84, 'multi_range': {'min': 1, 'max': 1}},
+  {'a': 36, 'b': 77, 'c': 85, 'multi_range': {'min': 1, 'max': 1}},
+  {'a': 39, 'b': 80, 'c': 89, 'multi_range': {'min': 1, 'max': 1}},
+  {'a': 65, 'b': 72, 'c': 97, 'multi_range': {'min': 1, 'max': 1}},
+]
+
+
+
 formulas_a = {
   1: 'math.radians(math.sin(a / b))',
   2: 'math.radians(math.sin(a / c))',
@@ -277,3 +297,17 @@ formulas_q = [
     ['cot', 'negative', 'sec', 'positive'],
   ],      
 ]
+
+questions_ftr = [
+  {'prompt': '$\\sin \\theta _1$', 'answer_options': [3, 4]}
+]
+
+formulas_ftr = {
+  1: 'h / c',
+  2: 'c / h',
+  3: 'w / c',
+  4: 'c / w',
+  5: 'w / h',
+  6: 'h / w'
+}
+
