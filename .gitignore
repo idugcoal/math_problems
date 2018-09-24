@@ -22,3 +22,4 @@ answer_key.log
 answer_key.pdf
 answer_key.tex
 math_answers.tex
+*.pyc

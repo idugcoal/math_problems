@@ -9,27 +9,24 @@ import angles
 import arcs
 import quadrants
 
-questions_input_file = 'math-template.tex'
-answers_input_file = 'answer-template.tex'
+questions_input_file = '/templates/exam/math-template.tex'
+answers_input_file = '/templates/exam/answer-template.tex'
 math_test = 'math_test'
 answer_key = 'answer_key'
-
-# questions = {
-  # 30 : rtt.get_tb(),
-  # 31 : angles.get_coterminalD(),
-  # 33 : angles.get_convertDtoR(),
-  # 43 : angles.get_referenceD(),
-  # 44 : angles.get_referenceR(),
-  # 46 : angles.get_convertRtoD(),
-# }
 
 questions = []
 answers = []
 
 question_set = [
-  angles.get_convertDtoR(),
+  # rtt.get_tb(),
+  # angles.get_coterminalD(),
+  # angles.get_convertDtoR(),
+  # angles.get_referenceD(),
+  # angles.get_referenceR(),
+  # angles.get_convertRtoD(),
+  # angles.get_convertDtoR(),
   # rtt.get_tABx(),    
-  rtt.get_finding_trig_ratio(), 
+  # rtt.get_finding_trig_ratio(), 
   # rtt.get_tABo1(),
   # rtt.get_tABo2(),
   # rtt.get_tBCx(),
@@ -82,7 +79,6 @@ renderedQuestions = question_template.render(questions=questions)
 
 with open(math_test + '.tex', 'w') as f:
     f.write(renderedQuestions)
-
 cmd = ['pdflatex', '-interaction', 'batchmode', math_test + '.tex']
 proc = subprocess.Popen(cmd)
 proc.communicate()
