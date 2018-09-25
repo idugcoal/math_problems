@@ -1,6 +1,7 @@
 import jinja2
 import os
 import subprocess
+import sys
 from jinja2 import Template
 from config import latex_jinja_env
 
@@ -8,6 +9,7 @@ import rtt
 import angles
 import arcs
 import quadrants
+import questions.triangles.q9 as q9 
 
 questions_input_file = '/templates/exam/math-template.tex'
 answers_input_file = '/templates/exam/answer-template.tex'
@@ -19,14 +21,17 @@ answers = []
 
 question_set = [
   # rtt.get_tb(),
+  # rtt.get_gb(),
+  q9.get_q9(),
+  # rtt.get_finding_trig_ratio(), 
   # angles.get_coterminalD(),
   # angles.get_convertDtoR(),
   # angles.get_referenceD(),
   # angles.get_referenceR(),
   # angles.get_convertRtoD(),
   # angles.get_convertDtoR(),
+  # quadrants.get_q_sign(),
   # rtt.get_tABx(),    
-  # rtt.get_finding_trig_ratio(), 
   # rtt.get_tABo1(),
   # rtt.get_tABo2(),
   # rtt.get_tBCx(),
@@ -53,9 +58,6 @@ question_set = [
   # rtt.get_tCo2A(),
   # rtt.get_tCo2B(),
   # rtt.get_tCo2o1(),  #extra info
-  # rtt.get_gb(),
-  # quadrants.get_q_sign(),
-  rtt.get_rdb(),
   arcs.get_al_cml(),
   arcs.get_al_rml(),
   arcs.get_al_dml(),
@@ -76,6 +78,8 @@ for current_question in question_set:
 
 question_template = latex_jinja_env.get_template(questions_input_file)
 renderedQuestions = question_template.render(questions=questions)
+answer_template = latex_jinja_env.get_template(answers_input_file)
+renderedAnswers = answer_template.render(answers=answers)
 
 with open(math_test + '.tex', 'w') as f:
     f.write(renderedQuestions)
@@ -88,24 +92,21 @@ if not retcode == 0:
     os.unlink(math_test + '.pdf')
     raise ValueError('Error {} executing command: {}'.format(retcode, ' '.join(cmd))) 
 
-answer_template = latex_jinja_env.get_template(answers_input_file)
-renderedAnswers = answer_template.render(answers=answers)
+# with open(answer_key + '.tex', 'w') as f:
+#     f.write(renderedAnswers)
 
-with open(answer_key + '.tex', 'w') as f:
-    f.write(renderedAnswers)
+# cmd = ['pdflatex', '-interaction', 'batchmode', answer_key + '.tex']
+# proc = subprocess.Popen(cmd)
+# proc.communicate()
 
-cmd = ['pdflatex', '-interaction', 'batchmode', answer_key + '.tex']
-proc = subprocess.Popen(cmd)
-proc.communicate()
-
-retcode = proc.returncode
-if not retcode == 0:
-    os.unlink(answer_key + '.pdf')
-    raise ValueError('Error {} executing command: {}'.format(retcode, ' '.join(cmd))) 
+# retcode = proc.returncode
+# if not retcode == 0:
+#     os.unlink(answer_key + '.pdf')
+#     raise ValueError('Error {} executing command: {}'.format(retcode, ' '.join(cmd))) 
 
 os.unlink(math_test + '.tex')
 os.unlink(math_test + '.log')
 os.unlink(math_test + '.aux')
 # os.unlink(answer_key + '.tex')
-os.unlink(answer_key + '.log')
-os.unlink(answer_key + '.aux')
+# os.unlink(answer_key + '.log')
+# os.unlink(answer_key + '.aux')
