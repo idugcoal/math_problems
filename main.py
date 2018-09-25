@@ -9,7 +9,10 @@ import rtt
 import angles
 import arcs
 import quadrants
-import questions.triangles.q9 as q9 
+import questions.triangles.q1 as q1
+import questions.triangles.q9 as q9
+import questions.triangles as triangles
+print(triangles)
 
 questions_input_file = '/templates/exam/math-template.tex'
 answers_input_file = '/templates/exam/answer-template.tex'
@@ -31,33 +34,33 @@ question_set = [
   # angles.get_convertRtoD(),
   # angles.get_convertDtoR(),
   # quadrants.get_q_sign(),
-  # rtt.get_tABx(),    
-  # rtt.get_tABo1(),
-  # rtt.get_tABo2(),
-  # rtt.get_tBCx(),
-  # rtt.get_tBCo1(),
-  # rtt.get_tBCo2(),
-  # rtt.get_tACx(),
-  # rtt.get_tACo1(),
-  # rtt.get_tACo2(),
-  # rtt.get_tAo1x(),
-  # rtt.get_tAo1B(),
-  # rtt.get_tAo1o2(),  #extra info
-  # rtt.get_tAo2x(),
-  # rtt.get_tAo2B(),
-  # rtt.get_tAo2o1(),  #extra info
-  # rtt.get_tBo1x(),
-  # rtt.get_tBo1A(),
-  # rtt.get_tBo1o2(),  #extra info
-  # rtt.get_tBo2x(),
-  # rtt.get_tBo2A(),
-  # rtt.get_tBo2o1(),  #extra info
-  # rtt.get_tCo1A(),
-  # rtt.get_tCo1B(),
-  # rtt.get_tCo1o2(),  #extra info
-  # rtt.get_tCo2A(),
-  # rtt.get_tCo2B(),
-  # rtt.get_tCo2o1(),  #extra info
+  # q1.get_tABx(),    
+  q1.get_tABo1(),
+  # q1.get_tABo2(),
+  # q1.get_tBCx(),
+  # q1.get_tBCo1(),
+  # q1.get_tBCo2(),
+  # q1.get_tACx(),
+  # q1.get_tACo1(),
+  # q1.get_tACo2(),
+  # q1.get_tAo1x(),
+  # q1.get_tAo1B(),
+  # q1.get_tAo1o2(),  #extra info
+  # q1.get_tAo2x(),
+  # q1.get_tAo2B(),
+  # q1.get_tAo2o1(),  #extra info
+  # q1.get_tBo1x(),
+  # q1.get_tBo1A(),
+  # q1.get_tBo1o2(),  #extra info
+  # q1.get_tBo2x(),
+  # q1.get_tBo2A(),
+  # q1.get_tBo2o1(),  #extra info
+  # q1.get_tCo1A(),
+  # q1.get_tCo1B(),
+  # q1.get_tCo1o2(),  #extra info
+  # q1.get_tCo2A(),
+  # q1.get_tCo2B(),
+  # q1.get_tCo2o1(),  #extra info
   arcs.get_al_cml(),
   arcs.get_al_rml(),
   arcs.get_al_dml(),
