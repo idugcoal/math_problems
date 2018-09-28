@@ -25,7 +25,7 @@ answers = []
 question_set = [
   # rtt.get_tb(),
   # rtt.get_gb(),
-  q9.get_q9(),
+  # q9.get_q9(),
   # rtt.get_finding_trig_ratio(), 
   # angles.get_coterminalD(),
   # angles.get_convertDtoR(),
@@ -35,7 +35,7 @@ question_set = [
   # angles.get_convertDtoR(),
   # quadrants.get_q_sign(),
   # q1.get_tABx(),    
-  q1.get_tABo1(),
+  # q1.get_tABo1(),
   # q1.get_tABo2(),
   # q1.get_tBCx(),
   # q1.get_tBCo1(),

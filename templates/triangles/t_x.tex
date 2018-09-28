@@ -1,18 +1,35 @@
-Solve for \VAR{solve}.
-\VAR{prompt}
-\newline
-\begin{tikzpicture}[scale=\VAR{scale}]
-    \coordinate (A) at (0, 0);
-    \coordinate (B) at (\VAR{w}, 0);
-    \coordinate (C) at (\VAR{w}, \VAR{h});
+% \begin{multiplechoice}
+%     \begin{question}
+        Solve for \VAR{solve}.
+        \VAR{prompt}
+        \newline
+        \begin{tikzpicture}[scale=\VAR{scale}]
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (\VAR{w}, 0);
+            \coordinate (C) at (\VAR{w}, \VAR{h});
 
-    \draw [very thick] (A) -- (B) node [midway, below] {\VAR{a}}
-      -- (C) node [midway, right] {\VAR{b}}
-      -- cycle node [midway, above left] {\VAR{c}};
-    \newcommand{\ranglesize}{0.3cm}
-    \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+            \draw [very thick] (A) -- (B) node [midway, below] {\VAR{a}}
+              -- (C) node [midway, right] {\VAR{b}}
+              -- cycle node [midway, above left] {\VAR{c}};
+            \newcommand{\ranglesize}{0.3cm}
+            \draw (B) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
 
-\end{tikzpicture}
+        \end{tikzpicture}
+%         \choice{1}
+%         \choice{1}
+%         \choice{1}
+%         \choice[!]{1}
+%     \end{question}
+% \end{multiplechoice}
+
+\begin{enumerate}
+\BLOCK{for answer in answers}
+    \item
+    \VAR{answer}
+\BLOCK{endfor}
+\end{enumerate}
+
+
 % \begin{enumerate}
 %   \item
 %     \[\frac{\VAR{w}}{\cos \VAR{angle}}\]
@@ -23,9 +40,3 @@ Solve for \VAR{solve}.
 %   \item
 %     \[\frac{\sin \VAR{angle}}{\VAR{w}}\]
 % \end{enumerate}
-\begin{enumerate}
-\BLOCK{for answer in answers}
-    \item
-    \VAR{answer}
-\BLOCK{endfor}
-\end{enumerate}
